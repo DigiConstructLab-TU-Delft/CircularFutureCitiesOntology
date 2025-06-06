@@ -540,7 +540,7 @@ ex:CentralTower
 * **Ontology IRI:** `https://w3id.org/cfc`
 * **Turtle File Location:**
 
-  * Browseable at: `[ontology/cfc.owl](https://github.com/DigiConstructLab-TU-Delft/CircularFutureCitiesOntology/blob/main/ontology/cfc.owl)` (example placeholder)
+  * Browseable at: `[ontology/cfc.owl](https://github.com/DigiConstructLab-TU-Delft/CircularFutureCitiesOntology/blob/main/ontology/cfc.owl)` 
   
 
 
