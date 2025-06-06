@@ -1,6 +1,6 @@
 # Circular Future Cities Ontology (CFC Ontology)
 
-This repository contains the **CFC Ontology**, a city-scale material passport ontology designed to support circular economy principles in the built environment. Developed as part of the *Future Cities Laboratory Circular Future Cities* project, it integrates concepts from established vocabularies such as OntoCityGML, BOT, DIC, CEO, CAMO, and others.
+This repository contains the **CFC Ontology**, a city-scale material passport ontology designed to support circular economy principles in the built environment. Developed as part of the *Future Cities Laboratory* (https://fcl.ethz.ch)  *Circular Future Cities* project(https://fcl.ethz.ch/research/cycles-and-districts/circular-future-cities.html), it integrates concepts from established vocabularies such as OntoCityGML, BOT, DIC, CEO, CAMO, and others.
 
 ## 🌐 Ontology Access
 
