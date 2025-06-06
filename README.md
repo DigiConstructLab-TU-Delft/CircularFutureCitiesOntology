@@ -11,11 +11,13 @@ This repository contains the **CFC Ontology**, a city-scale material passport on
 ## 📂 Folder Structure
 
 ontology/              # Core OWL and Turtle files
+
 ontology/imports/      # Imported ontologies (e.g., OntoCityGML, BOT)
-ontology/modules/      # Modular ontology components
+
 docs/                  # Markdown documentation
-examples/              # Usage examples (e.g., TTL, JSON-LD)
-scripts/               # Helper scripts
+
+examples/              # Usage examples (e.g., TTL)
+
 .github/               # GitHub configs (issues, PR templates, actions)
 
 ## 🛠️ Technologies
