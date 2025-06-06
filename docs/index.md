@@ -538,20 +538,11 @@ ex:CentralTower
 ## 9. Versioning and Publication
 
 * **Ontology IRI:** `https://w3id.org/cfc`
-* **Version IRI:** `https://w3id.org/cfc/CompleteOntology/1.2`
 * **Turtle File Location:**
 
-  * Browseable at: `https://raw.githubusercontent.com/YourOrganization/cfc-ontology/main/cfc.owl` (example placeholder)
-  * Associated documentation (this file) can be published at:
+  * Browseable at: `[ontology/cfc.owl](https://github.com/DigiConstructLab-TU-Delft/CircularFutureCitiesOntology/blob/main/ontology/cfc.owl)` (example placeholder)
+  
 
-    * `https://w3id.org/cfc/docs`
-
-### Publishing Steps
-
-1. **Host the `.owl` file** on a stable, HTTPS‐accessible endpoint (e.g., GitHub repository, institutional server).
-2. **Create a “732 redirect”** (as per w3id conventions) so that `https://w3id.org/cfc` redirects via content negotiation to the Turtle file.
-3. **Publish this documentation** (Markdown/HTML) at `https://w3id.org/cfc/docs` or integrate it into a static site generator.
-4. **Register the final w3id** by editing `https://github.com/w3id/namespace/blob/master/namespace.json` to point to your hosted `.owl` file.
 
 ---
 
