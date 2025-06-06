@@ -1,0 +1,16 @@
+@prefix cfc: <https://w3id.org/cfc#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix : <https://example.org/building1#> .
+
+:steel_beam_1 a cfc:MaterialResource ;
+    cfc:hasMaterialType "Steel" ;
+    cfc:hasMass "500.0"^^xsd:float ;
+    cfc:usedIn :floor_structure_1 .
+
+:floor_structure_1 a bot:Element ;
+    bot:elementOf :building_1 ;
+    cfc:composedOf :steel_beam_1 .
+
+:building_1 a bot:Building ;
+    rdfs:label "Building A" .

@@ -1,0 +1,724 @@
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix bot:    <https://w3id.org/bot#> .
+@prefix bpo:    <https://w3id.org/bpo#> .
+@prefix dica:   <https://w3id.org/digitalconstruction/Agents#> .
+@prefix dicp:   <https://w3id.org/digitalconstruction/Processes#> .
+@prefix dicl:   <https://w3id.org/digitalconstruction/Lifecycle#> .
+@prefix dicbm:  <https://w3id.org/digitalconstruction/BuildingMaterials#> .
+@prefix omg:    <http://w3id.org/omg#> .
+@prefix opm:    <https://w3c-lbd-cg.github.io/opm#> .
+@prefix ceo:    <http://ld-ce.com/vocab/CEO#> .
+@prefix camo:   <http://ld-ce.com/vocab/CAMO#> .
+@prefix ocg:    <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#> .
+@prefix cfc:    <https://w3id.org/cfc#> .
+
+###################################################################
+#                     Ontology Header                             #
+###################################################################
+
+cfc:CompleteOntology
+    a           owl:Ontology ;
+    rdfs:label  "CFC Ontology - Complete Circular Future Cities Material Passport"@en ;
+    rdfs:comment
+        "An OWL ontology integrating city-scale material passports, building topology, material types, lifecycle agents, and circular economy concepts (CEO & CAMO), explicitly aligned with OntoCityGML."@en ;
+    owl:versionInfo "1.2" ;
+    owl:imports
+        <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl> ,   # OntoCityGML
+        <https://w3id.org/bot> ,                                     # BOT: Building Topology Ontology
+        <https://w3id.org/bpo> ,                                     # BPO: Building Product Ontology
+        <https://w3id.org/digitalconstruction/Agents> ,              # DIC Agents
+        <https://w3id.org/digitalconstruction/Materials> ,           # DIC Building Materials
+        <https://w3id.org/digitalconstruction/Lifecycle> ,           # DIC Lifecycle
+        <http://w3id.org/omg> ,                                       # OMG: Ontology for Managing Geometry
+        <https://w3c-lbd-cg.github.io/opm> ,                          # OPM: Ontology for Property Management
+        <http://ld-ce.com/vocab/CEO> ,                               # CEO: Circular Exchange Ontology
+        <http://ld-ce.com/vocab/CAMO> .                               # CAMO: Circular Asset Management Ontology
+
+###################################################################
+#                             Alignments                           #
+###################################################################
+
+# Align BOT classes to OntoCityGML
+bot:Building
+    rdfs:subClassOf ocg:Building ;
+    rdfs:comment
+        "BOT Building aligned as a subclass of OntoCityGML Building."@en .
+
+bot:Site
+    rdfs:subClassOf ocg:Site ;
+    rdfs:comment
+        "BOT Site aligned as a subclass of OntoCityGML Site."@en .
+
+bot:Storey
+    rdfs:subClassOf ocg:BuildingPart ;
+    rdfs:comment
+        "BOT Storey aligned as a subclass of OntoCityGML BuildingPart."@en .
+
+bot:Space
+    rdfs:subClassOf ocg:BuildingPart ;
+    rdfs:comment
+        "BOT Space aligned as a subclass of OntoCityGML BuildingPart."@en .
+
+###################################################################
+#                             Classes                             #
+###################################################################
+
+## ---------------------------------------------------------------
+## City and Sector (aligned with OntoCityGML and BOT)
+## ---------------------------------------------------------------
+
+cfc:City
+    a           owl:Class ;
+    rdfs:label  "City"@en ;
+    rdfs:comment
+        "A city or municipality containing districts and buildings."@en ;
+    rdfs:subClassOf 
+        ocg:City ,                                # Direct subclass of OntoCityGML City
+        [
+            a            owl:Restriction ;
+            owl:onProperty cfc:hasSector ;
+            owl:allValuesFrom cfc:Sector
+        ] .
+
+cfc:Sector
+    a           owl:Class ;
+    rdfs:label  "CitySector"@en ;
+    rdfs:comment
+        "A city sector or district containing a group of buildings."@en ;
+    rdfs:subClassOf 
+        ocg:CityObject ,                          # Subclass of OntoCityGML CityObject
+        [
+            a            owl:Restriction ;
+            owl:onProperty cfc:hasBuilding ;
+            owl:allValuesFrom bot:Building
+        ] .
+
+## ---------------------------------------------------------------
+## Building and Component Classes
+## ---------------------------------------------------------------
+
+# Reuse bot:Building, bot:Site, bot:Storey, bot:Space, bot:Element from BOT.
+
+cfc:BuildingComponent
+    a           owl:Class ;
+    rdfs:label  "BuildingComponent"@en ;
+    rdfs:comment
+        "A physical building element or component that is part of a building (e.g., wall, window, beam)."@en ;
+    rdfs:subClassOf 
+        bot:Element ,
+        ocg:CityObject .                           # Align component as CityObject
+
+cfc:Window
+    a           owl:Class ;
+    rdfs:label  "Window"@en ;
+    rdfs:comment
+        "A window component, typically an assembly of frame and glazing."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        bpo:assembly ,
+        ocg:CityObject .
+
+cfc:Door
+    a           owl:Class ;
+    rdfs:label  "Door"@en ;
+    rdfs:comment
+        "A door component, including frame and leaf, used for building access."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        bpo:assembly ,
+        ocg:CityObject .
+
+cfc:Roof
+    a           owl:Class ;
+    rdfs:label  "Roof"@en ;
+    rdfs:comment
+        "A roof component providing top enclosure for a building."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        bpo:assembly ,
+        ocg:CityObject .
+
+cfc:Beam
+    a           owl:Class ;
+    rdfs:label  "Beam"@en ;
+    rdfs:comment
+        "A horizontal structural member that supports loads."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        ocg:CityObject .
+
+cfc:Column
+    a           owl:Class ;
+    rdfs:label  "Column"@en ;
+    rdfs:comment
+        "A vertical structural member that supports loads."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        ocg:CityObject .
+
+cfc:Wall
+    a           owl:Class ;
+    rdfs:label  "Wall"@en ;
+    rdfs:comment
+        "A vertical element forming the enclosure or partition of a building."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        bpo:assembly ,
+        ocg:CityObject .
+
+cfc:Stair
+    a           owl:Class ;
+    rdfs:label  "Stair"@en ;
+    rdfs:comment
+        "A stair component composed of treads, risers, and supporting structure."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        bpo:assembly ,
+        ocg:CityObject .
+
+cfc:Floor
+    a           owl:Class ;
+    rdfs:label  "Floor"@en ;
+    rdfs:comment
+        "A floor component providing horizontal surface within a building."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        ocg:CityObject .
+
+cfc:Foundation
+    a           owl:Class ;
+    rdfs:label  "Foundation"@en ;
+    rdfs:comment
+        "A foundation component transmitting building loads to the ground."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        ocg:CityObject .
+
+cfc:KitchenComponent
+    a           owl:Class ;
+    rdfs:label  "KitchenComponent"@en ;
+    rdfs:comment
+        "A kitchen component, such as cabinetry, countertops, or built-in appliances."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        bpo:assembly ,
+        ocg:CityObject .
+
+cfc:PlumbingComponent
+    a           owl:Class ;
+    rdfs:label  "PlumbingComponent"@en ;
+    rdfs:comment
+        "A plumbing component, such as pipes, fixtures, and fittings."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        ocg:CityObject .
+
+cfc:ElectricalComponent
+    a           owl:Class ;
+    rdfs:label  "ElectricalComponent"@en ;
+    rdfs:comment
+        "An electrical system component, such as wiring, outlets, panels, and fixtures."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        ocg:CityObject .
+
+cfc:MechanicalComponent
+    a           owl:Class ;
+    rdfs:label  "MechanicalComponent"@en ;
+    rdfs:comment
+        "A mechanical system component, such as pumps, motors, and ductwork."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        ocg:CityObject .
+
+cfc:HVACComponent
+    a           owl:Class ;
+    rdfs:label  "HVACComponent"@en ;
+    rdfs:comment
+        "A heating, ventilation, and air conditioning component."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        ocg:CityObject .
+
+cfc:HeatingComponent
+    a           owl:Class ;
+    rdfs:label  "HeatingComponent"@en ;
+    rdfs:comment
+        "A heating system component, such as boilers, radiators, or heaters."@en ;
+    rdfs:subClassOf 
+        cfc:HVACComponent ,
+        ocg:CityObject .
+
+cfc:VentilationComponent
+    a           owl:Class ;
+    rdfs:label  "VentilationComponent"@en ;
+    rdfs:comment
+        "A ventilation system component, such as ducts, fans, or vents."@en ;
+    rdfs:subClassOf 
+        cfc:HVACComponent ,
+        ocg:CityObject .
+
+cfc:PlasterComponent
+    a           owl:Class ;
+    rdfs:label  "PlasterComponent"@en ;
+    rdfs:comment
+        "A plaster or drywall component forming interior wall finishes."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        ocg:CityObject .
+
+cfc:CladdingComponent
+    a           owl:Class ;
+    rdfs:label  "CladdingComponent"@en ;
+    rdfs:comment
+        "An external cladding component, such as siding, panels, or curtain walls."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        ocg:CityObject .
+
+cfc:WindowCurtainWallComponent
+    a           owl:Class ;
+    rdfs:label  "WindowCurtainWallComponent"@en ;
+    rdfs:comment
+        "A curtain wall component incorporating windows and framing."@en ;
+    rdfs:subClassOf 
+        cfc:BuildingComponent ,
+        bpo:assembly ,
+        ocg:CityObject .
+
+## ---------------------------------------------------------------
+## Material Classes
+## ---------------------------------------------------------------
+
+cfc:Material
+    a           owl:Class ;
+    rdfs:label  "Material"@en ;
+    rdfs:comment
+        "A type of material (e.g., concrete, steel, glass) used in building components."@en ;
+    rdfs:subClassOf dicbm:Material .
+
+cfc:StructuralSteel
+    a           owl:Class ;
+    rdfs:label  "StructuralSteelMaterial"@en ;
+    rdfs:comment
+        "Structural steel material with known load-bearing properties."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:CopperMaterial
+    a           owl:Class ;
+    rdfs:label  "CopperMaterial"@en ;
+    rdfs:comment
+        "Copper material used in electrical wiring, plumbing, and other high-value applications, highly recyclable."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:AluminumMaterial
+    a           owl:Class ;
+    rdfs:label  "AluminumMaterial"@en ;
+    rdfs:comment
+        "Aluminum material commonly used for window frames, façade cladding, and structural elements; valued for its light weight and recyclability."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:BrassMaterial
+    a           owl:Class ;
+    rdfs:label  "BrassMaterial"@en ;
+    rdfs:comment
+        "Brass material used in high-value fittings and fixtures (such as door hardware, taps, and decorative elements); fully recyclable."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:StainlessSteelMaterial
+    a           owl:Class ;
+    rdfs:label  "StainlessSteelMaterial"@en ;
+    rdfs:comment
+        "Stainless steel material used for countertops, handrails, and certain structural elements; prized for corrosion resistance and recyclability."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:TimberMaterial
+    a             owl:Class ;
+    rdfs:label    "TimberMaterial"@en ;
+    rdfs:comment  "Timber material used for structural framing, flooring, and finishes; includes solid lumber and engineered wood products."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:ConcreteMaterial
+    a             owl:Class ;
+    rdfs:label    "ConcreteMaterial"@en ;
+    rdfs:comment  "Concrete material used in foundations, slabs, walls, and precast elements; typically a mixture of cement, aggregates, and water."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:BrickMaterial
+    a             owl:Class ;
+    rdfs:label    "BrickMaterial"@en ;
+    rdfs:comment  "Brick material including clay bricks and concrete masonry units, commonly used for walls, façades, and paving."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:GlassMaterial
+    a           owl:Class ;
+    rdfs:label  "GlassMaterial"@en ;
+    rdfs:comment
+        "Glass material used in windows, curtain walls, and other glazed assemblies."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:GypsumBoardMaterial
+    a           owl:Class ;
+    rdfs:label  "GypsumBoardMaterial"@en ;
+    rdfs:comment
+        "Gypsum board (drywall) material used for interior partition walls and ceilings."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:InsulationMaterial
+    a           owl:Class ;
+    rdfs:label  "InsulationMaterial"@en ;
+    rdfs:comment
+        "Thermal or acoustic insulation material, such as fiberglass, foam, or rock wool."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:WaterproofingMaterial
+    a           owl:Class ;
+    rdfs:label  "WaterproofingMaterial"@en ;
+    rdfs:comment
+        "Waterproofing material, such as membrane or sealant used for moisture protection."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:FlooringMaterial
+    a             owl:Class ;
+    rdfs:label    "FlooringMaterial"@en ;
+    rdfs:comment  "Flooring material, such as wood, tile, vinyl, or carpet."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:PaintMaterial
+    a           owl:Class ;
+    rdfs:label  "PaintMaterial"@en ;
+    rdfs:comment
+        "Paint or coating material used for finishing surfaces."@en ;
+    rdfs:subClassOf cfc:Material .
+
+cfc:MaterialResource
+    a           owl:Class ;
+    rdfs:label  "MaterialResource"@en ;
+    rdfs:comment
+        "A quantity of a material (possibly from a component) available for reuse (a recoverable resource in a circular economy)."@en ;
+    rdfs:subClassOf ceo:Resource .
+
+## ---------------------------------------------------------------
+## Lifecycle Event Classes (extended)
+## ---------------------------------------------------------------
+
+cfc:DemolitionEvent
+    a           owl:Class ;
+    rdfs:label  "DemolitionEvent"@en ;
+    rdfs:comment
+        "An event or process where a building (or part) is demolished, yielding material resources."@en ;
+    rdfs:subClassOf dicp:Activity , prov:Activity .
+
+cfc:ConstructionEvent
+    a           owl:Class ;
+    rdfs:label  "ConstructionEvent"@en ;
+    rdfs:comment
+        "An event of constructing or installing a building or component."@en ;
+    rdfs:subClassOf dicp:Activity , prov:Activity .
+
+cfc:RenovationEvent
+    a           owl:Class ;
+    rdfs:label  "RenovationEvent"@en ;
+    rdfs:comment
+        "An event in which a building or component is upgraded, refurbished, or modified without complete demolition."@en ;
+    rdfs:subClassOf dicp:Activity , prov:Activity .
+
+cfc:MaintenanceEvent
+    a           owl:Class ;
+    rdfs:label  "MaintenanceEvent"@en ;
+    rdfs:comment
+        "An event in which regular upkeep, repair, or servicing activities are performed on a building or component."@en ;
+    rdfs:subClassOf dicp:Activity , prov:Activity .
+
+cfc:DesignEvent
+    a           owl:Class ;
+    rdfs:label  "DesignEvent"@en ;
+    rdfs:comment
+        "An event representing the design or planning phase for a building, component, or system."@en ;
+    rdfs:subClassOf dicp:Activity , prov:Activity .
+
+## ---------------------------------------------------------------
+## Agent Role Subclasses (all subclass of dica:StakeholderRole)
+## ---------------------------------------------------------------
+
+cfc:UrbanPlannerRole
+    a           owl:Class ;
+    rdfs:subClassOf dica:StakeholderRole ;
+    rdfs:label  "UrbanPlannerRole"@en ;
+    rdfs:comment
+        "Role of an agent responsible for urban planning functions at the city or sector level."@en .
+
+cfc:ArchitectRole
+    a           owl:Class ;
+    rdfs:subClassOf dica:StakeholderRole ;
+    rdfs:label  "ArchitectRole"@en ;
+    rdfs:comment
+        "Role of an agent responsible for architectural design of buildings."@en .
+
+cfc:EngineerRole
+    a           owl:Class ;
+    rdfs:subClassOf dica:StakeholderRole ;
+    rdfs:label  "EngineerRole"@en ;
+    rdfs:comment
+        "Role of an agent responsible for engineering analysis, structural calculations, or system design."@en .
+
+cfc:ConsultantRole
+    a           owl:Class ;
+    rdfs:subClassOf dica:StakeholderRole ;
+    rdfs:label  "ConsultantRole"@en ;
+    rdfs:comment
+        "Role of an agent providing specialized consultancy (e.g., sustainability, energy modeling, materials advice)."@en .
+
+cfc:ContractorRole
+    a           owl:Class ;
+    rdfs:subClassOf dica:StakeholderRole ;
+    rdfs:label  "ContractorRole"@en ;
+    rdfs:comment
+        "Role of an agent responsible for construction management and execution."@en .
+
+cfc:ManufacturerRole
+    a           owl:Class ;
+    rdfs:subClassOf dica:StakeholderRole ;
+    rdfs:label  "ManufacturerRole"@en ;
+    rdfs:comment
+        "Role of an agent (company or facility) manufacturing building components or materials."@en .
+
+cfc:EndUserRole
+    a           owl:Class ;
+    rdfs:subClassOf dica:StakeholderRole ;
+    rdfs:label  "EndUserRole"@en ;
+    rdfs:comment
+        "Role of an agent that occupies or operates a building (e.g., tenant, owner-occupant, facility manager)."@en .
+
+cfc:DeconstructorRole
+    a           owl:Class ;
+    rdfs:subClassOf dica:StakeholderRole ;
+    rdfs:label  "DeconstructorRole"@en ;
+    rdfs:comment
+        "Role of an agent skilled in systematic deconstruction to recover materials for reuse."@en .
+
+cfc:DemolitionContractorRole
+    a           owl:Class ;
+    rdfs:subClassOf dica:StakeholderRole ;
+    rdfs:label  "DemolitionContractorRole"@en ;
+    rdfs:comment
+        "Role of an agent responsible for demolition activities (typically less selective than deconstruction)."@en .
+
+cfc:ReclaimerRole
+    a           owl:Class ;
+    rdfs:subClassOf dica:StakeholderRole ;
+    rdfs:label  "ReclaimerRole"@en ;
+    rdfs:comment
+        "Role of an agent responsible for collecting, sorting, and reclaiming materials post-demolition."@en .
+
+cfc:SalvageContractorRole
+    a           owl:Class ;
+    rdfs:subClassOf dica:StakeholderRole ;
+    rdfs:label  "SalvageContractorRole"@en ;
+    rdfs:comment
+        "Role of an agent responsible for salvaging materials (e.g., performing deconstruction and material recovery)."@en .
+
+## ---------------------------------------------------------------
+## Circular Exchange Ontology (CEO) Integration
+## ---------------------------------------------------------------
+
+cfc:MaterialOffer
+    a           owl:Class ;
+    rdfs:label  "MaterialOffer"@en ;
+    rdfs:comment
+        "An offer made by an agent to supply a material resource in a circular economy context."@en ;
+    rdfs:subClassOf ceo:Offer .
+
+cfc:MaterialRequest
+    a           owl:Class ;
+    rdfs:label  "MaterialRequest"@en ;
+    rdfs:comment
+        "A request made by an agent for a material resource, indicating demand."@en ;
+    rdfs:subClassOf ceo:Request .
+
+cfc:MaterialTransaction
+    a           owl:Class ;
+    rdfs:label  "MaterialTransaction"@en ;
+    rdfs:comment
+        "Represents an executed transaction between an offer and a request for a material resource."@en ;
+    rdfs:subClassOf ceo:Transaction .
+
+cfc:makesOffer
+    a           owl:ObjectProperty ;
+    rdfs:label  "makesOffer"@en ;
+    rdfs:comment
+        "Links an Agent to a MaterialOffer they create."@en ;
+    rdfs:domain  dica:Agent ;
+    rdfs:range   cfc:MaterialOffer ;
+    rdfs:subPropertyOf ceo:offeredBy .
+
+cfc:makesRequest
+    a           owl:ObjectProperty ;
+    rdfs:label  "makesRequest"@en ;
+    rdfs:comment
+        "Links an Agent to a MaterialRequest they create."@en ;
+    rdfs:domain  dica:Agent ;
+    rdfs:range   cfc:MaterialRequest ;
+    rdfs:subPropertyOf ceo:requestedBy .
+
+cfc:participatesInTransaction
+    a           owl:ObjectProperty ;
+    rdfs:label  "participatesInTransaction"@en ;
+    rdfs:comment
+        "Associates an Agent with a completed MaterialTransaction."@en ;
+    rdfs:domain  dica:Agent ;
+    rdfs:range   cfc:MaterialTransaction ;
+    rdfs:subPropertyOf ceo:involvesAgent .
+
+## ---------------------------------------------------------------
+## CAMO (Circular Asset Management Ontology) Integration
+## ---------------------------------------------------------------
+
+cfc:Asset
+    a           owl:Class ;
+    rdfs:label  "Asset"@en ;
+    rdfs:comment
+        "A tangible building asset or component tracked over its lifecycle."@en ;
+    rdfs:subClassOf camo:Asset .
+
+cfc:AssetCondition
+    a           owl:Class ;
+    rdfs:label  "AssetCondition"@en ;
+    rdfs:comment
+        "Represents the condition state of an Asset (e.g., new, in-use, worn, end-of-life)."@en ;
+    rdfs:subClassOf camo:AssetCondition .
+
+cfc:WorkOrder
+    a           owl:Class ;
+    rdfs:label  "WorkOrder"@en ;
+    rdfs:comment
+        "A scheduled task or job related to an Asset, such as inspection, maintenance, or deconstruction."@en ;
+    rdfs:subClassOf camo:WorkOrder .
+
+cfc:assignedToAsset
+    a           owl:ObjectProperty ;
+    rdfs:label  "assignedToAsset"@en ;
+    rdfs:comment
+        "Indicates that an Agent (e.g., inspector, maintenance crew) is responsible for a specific Asset."@en ;
+    rdfs:domain  dica:Agent ;
+    rdfs:range   cfc:Asset ;
+    rdfs:subPropertyOf camo:responsibleForAsset .
+
+cfc:ordersWork
+    a           owl:ObjectProperty ;
+    rdfs:label  "ordersWork"@en ;
+    rdfs:comment
+        "Indicates that an Agent issues a WorkOrder for an Asset (e.g., scheduling maintenance, demolition, or reclamation)."@en ;
+    rdfs:domain  dica:Agent ;
+    rdfs:range   cfc:WorkOrder ;
+    rdfs:subPropertyOf camo:orders .
+
+## ---------------------------------------------------------------
+## CFC Object Properties (Building, Material, Lifecycle)
+## ---------------------------------------------------------------
+
+cfc:hasSector
+    a           owl:ObjectProperty ;
+    rdfs:label  "hasSector"@en ;
+    rdfs:comment
+        "Relates a City to a Sector (district within the city)."@en ;
+    rdfs:domain  cfc:City ;
+    rdfs:range   cfc:Sector ;
+    rdfs:subPropertyOf ocg:containsCityObject .   # OntoCityGML containment
+
+cfc:hasBuilding
+    a           owl:ObjectProperty ;
+    rdfs:label  "hasBuilding"@en ;
+    rdfs:comment
+        "Relates a Sector to a Building located within it."@en ;
+    rdfs:domain  cfc:Sector ;
+    rdfs:range   bot:Building ;
+    rdfs:subPropertyOf ocg:containsCityObject .  # Align with OntoCityGML
+
+cfc:hasMaterial
+    a           owl:ObjectProperty ;
+    rdfs:label  "hasMaterial"@en ;
+    rdfs:comment
+        "Indicates a material that a building component is made of."@en ;
+    rdfs:domain  cfc:BuildingComponent ;
+    rdfs:range   cfc:Material .
+
+cfc:hasDemolitionEvent
+    a           owl:ObjectProperty ;
+    rdfs:label  "hasDemolitionEvent"@en ;
+    rdfs:comment
+        "Associates a Building with its planned or actual Demolition event."@en ;
+    rdfs:domain  bot:Building ;
+    rdfs:range   cfc:DemolitionEvent .
+
+cfc:generatesResource
+    a           owl:ObjectProperty ;
+    rdfs:label  "generatesResource"@en ;
+    rdfs:comment
+        "Indicates that a demolition event generates a certain material resource for reuse."@en ;
+    rdfs:domain  cfc:DemolitionEvent ;
+    rdfs:range   cfc:MaterialResource ;
+    rdfs:subPropertyOf prov:generated .
+
+cfc:derivedFromComponent
+    a           owl:ObjectProperty ;
+    rdfs:label  "derivedFromComponent"@en ;
+    rdfs:comment
+        "Links a recovered MaterialResource to the original building component it came from."@en ;
+    rdfs:domain  cfc:MaterialResource ;
+    rdfs:range   cfc:BuildingComponent ;
+    rdfs:subPropertyOf prov:wasDerivedFrom .
+
+cfc:performedBy
+    a           owl:ObjectProperty ;
+    rdfs:label  "performedBy"@en ;
+    rdfs:comment
+        "Indicates the Agent (person or organization) that performs an activity (e.g., demolition, construction, renovation, maintenance, design)."@en ;
+    rdfs:domain  dicp:Activity ;
+    rdfs:range   dica:Agent ;
+    rdfs:subPropertyOf prov:wasAssociatedWith .
+
+cfc:offeredBy
+    a           owl:ObjectProperty ;
+    rdfs:label  "offeredBy"@en ;
+    rdfs:comment
+        "The agent offering this material resource for reuse."@en ;
+    rdfs:domain  cfc:MaterialResource ;
+    rdfs:range   dica:Agent .
+
+## ---------------------------------------------------------------
+## CFC Data Properties
+## ---------------------------------------------------------------
+
+cfc:quantity
+    a           owl:DatatypeProperty ;
+    rdfs:label  "quantity"@en ;
+    rdfs:comment
+        "Quantity of material available (in a specified unit, e.g., kg or count)."@en ;
+    rdfs:domain  cfc:MaterialResource ;
+    rdfs:range   xsd:decimal .
+
+cfc:unit
+    a           owl:DatatypeProperty ;
+    rdfs:label  "unit"@en ;
+    rdfs:comment
+        "Unit of the quantity (e.g., 'kg', 'm^2')."@en ;
+    rdfs:domain  cfc:MaterialResource ;
+    rdfs:range   xsd:string .
+
+cfc:hasLoadCapacity
+    a           owl:DatatypeProperty ;
+    rdfs:label  "hasLoadCapacity"@en ;
+    rdfs:comment
+        "Specifies the load-bearing capacity (e.g., in kN or MPa) of a structural component or material."@en ;
+    rdfs:domain  cfc:BuildingComponent ;
+    rdfs:range   xsd:decimal .
+
+###################################################################
+#                        End of Ontology                          #
+###################################################################

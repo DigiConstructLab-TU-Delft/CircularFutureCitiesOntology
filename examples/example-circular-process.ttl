@@ -1,0 +1,12 @@
+@prefix cfc: <https://w3id.org/cfc#> .
+@prefix ceo: <https://example.org/ceo#> .
+@prefix : <https://example.org/process1#> .
+
+:reuse_event_1 a ceo:ReuseEvent ;
+    ceo:involvesMaterial :wood_panel_1 ;
+    ceo:fromBuilding :old_school ;
+    ceo:toBuilding :new_museum ;
+    ceo:eventDate "2023-01-15"^^xsd:date .
+
+:wood_panel_1 a cfc:MaterialResource ;
+    cfc:hasMaterialType "Wood" .

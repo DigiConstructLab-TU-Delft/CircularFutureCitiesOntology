@@ -1,0 +1,15 @@
+@prefix cfc: <https://w3id.org/cfc#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix : <https://example.org/building2#> .
+
+:wall1 a bot:Element ;
+    cfc:composedOf :brick_batch_1 ;
+    cfc:hasLifecycleEvent :installation_2022 .
+
+:installation_2022 a cfc:LifecycleEvent ;
+    cfc:eventType "Installation" ;
+    cfc:eventDate "2022-06-15"^^xsd:date ;
+    cfc:performedBy :construction_company_x .
+
+:construction_company_x a cfc:Agent ;
+    rdfs:label "XYZ Construction Ltd" .

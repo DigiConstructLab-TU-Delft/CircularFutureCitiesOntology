@@ -1,0 +1,23 @@
+@prefix cfc: <https://w3id.org/cfc#> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix : <https://example.org/integrated#> .
+
+:buildingA a bot:Building ;
+    cfc:hasSector :sector1 ;
+    bot:hasElement :roofA .
+
+:roofA a bot:Element ;
+    cfc:composedOf :tile_batch_A .
+
+:tile_batch_A a cfc:MaterialResource ;
+    cfc:hasMaterialType "Ceramic" ;
+    cfc:usedIn :roofA .
+
+:agentX a cfc:Agent ;
+    cfc:hasRole cfc:Owner ;
+    rdfs:label "City Housing Dept." .
+
+:installation_event a cfc:LifecycleEvent ;
+    cfc:eventType "Installation" ;
+    cfc:eventDate "2022-11-01"^^xsd:date ;
+    cfc:performedBy :agentX .

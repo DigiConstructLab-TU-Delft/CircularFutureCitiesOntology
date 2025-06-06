@@ -1,0 +1,11 @@
+@prefix cfc: <https://w3id.org/cfc#> .
+@prefix : <https://example.org/city#> .
+
+:Rotterdam a cfc:City ;
+    cfc:hasSector :industrial_sector_1 .
+
+:industrial_sector_1 a cfc:CitySector ;
+    cfc:containsBuilding :factory_building_1 .
+
+:factory_building_1 a cfc:Building ;
+    rdfs:label "Factory Alpha" .

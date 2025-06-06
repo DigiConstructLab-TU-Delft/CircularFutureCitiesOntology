@@ -1,0 +1,10 @@
+@prefix cfc: <https://w3id.org/cfc#> .
+@prefix : <https://example.org/agents#> .
+
+:agent1 a cfc:Agent ;
+    cfc:hasRole cfc:Manufacturer ;
+    rdfs:label "Eco Materials Inc." .
+
+:agent2 a cfc:Agent ;
+    cfc:hasRole cfc:Recycler ;
+    rdfs:label "GreenCycle Solutions" .
