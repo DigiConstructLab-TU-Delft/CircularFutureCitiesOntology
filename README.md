@@ -6,7 +6,7 @@ This repository contains the **CFC Ontology**, a city-scale material passport on
 
 - **OWL File**: [`ontology/cfc.owl`](ontology/cfc.owl)
 - **Documentation**: [`docs/index.md`](docs/index.md)
-- **Namespace**: [https://w3id.org/cfc](https://w3id.org/cfc)
+- **Namespace**: [https://w3id.org/cfc](https://w3id.org/cfc/ontology#)
 
 ## 📂 Folder Structure
 
