@@ -74,10 +74,10 @@ The following prefixes are used throughout the ontology:
 @prefix ceo:    <http://ld-ce.com/vocab/CEO#> .
 @prefix camo:   <http://ld-ce.com/vocab/CAMO#> .
 @prefix ocg:    <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#> .
-@prefix cfc:    <https://w3id.org/cfc#> .
+@prefix cfc:    <https://w3id.org/cfc/ontology#> .
 ```
 
-* **cfc:** The base namespace of this ontology, published at `https://w3id.org/cfc`.
+* **cfc:** The base namespace of this ontology, published at `https://w3id.org/cfc/ontology`.
 * **ocg:** OntoCityGML vocabulary for city‐scale 3D modeling.
 * **bot:** Building Topology Ontology (core concepts like Building, Site, Storey).
 * **bpo:** Building Product Ontology (assemblies, products).
