@@ -1,3 +1,8 @@
+---
+title: Circular Future Cities Ontology
+layout: default
+---
+
 # CFC Ontology Documentation
 
 This document provides an overview of the **CFC Ontology**—a city‐scale material passport ontology designed to support circular economy principles in the built environment. It describes the ontology’s purpose, namespace prefixes, imports, class and property hierarchies, alignment with existing vocabularies (OntoCityGML, BOT, DIC, CEO, CAMO, etc.), and usage examples. This documentation can be published alongside the ontology at `https://w3id.org/cfc`.
