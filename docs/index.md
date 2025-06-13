@@ -1,6 +1,6 @@
 ---
 title: Circular Future Cities Ontology
-layout: default
+
 ---
 
 # CFC Ontology Documentation
