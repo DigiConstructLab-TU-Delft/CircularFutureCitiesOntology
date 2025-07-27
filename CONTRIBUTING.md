@@ -5,7 +5,7 @@ We welcome contributions to the **Circular Future Cities Ontology** project! Whe
 ## 🧭 Where to Start
 
 - Read the [README.md](README.md) for project context.
-- Explore [`docs/index.md`](docs/index.md) to understand the ontology structure.
+- Explore [`docs/index.html`](docs/index.html) to understand the ontology structure.
 - Check [`ontology/cfc.owl`](ontology/cfc.owl) for the current ontology file.
 
 ## 🛠️ How to Contribute
