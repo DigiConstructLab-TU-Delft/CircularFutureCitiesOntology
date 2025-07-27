@@ -5,7 +5,7 @@ This repository contains the **CFC Ontology**, a city-scale material passport on
 ## 🌐 Ontology Access
 
 - **OWL File**: [`ontology/cfc.owl`](ontology/cfc.owl)
-- **Documentation**: [`docs/index.md`](docs/index.md) or [https://w3id.org/cfc](https://w3id.org/cfc)
+- **Documentation**: [`docs/index.html`](docs/index.html) or [https://w3id.org/cfc](https://w3id.org/cfc)
 - **Namespace**: [https://w3id.org/cfc/ontology](https://w3id.org/cfc/ontology#)
 
 ## 📂 Folder Structure
@@ -13,7 +13,7 @@ This repository contains the **CFC Ontology**, a city-scale material passport on
 <pre lang="markdown"><code>
 ontology/              # Core OWL and Turtle files
 ├── imports/           # Imported ontologies (e.g., OntoCityGML, BOT)
-docs/                  # Markdown documentation
+docs/                  # WIDOCO documentation
 examples/              # Usage examples (e.g., TTL)
 .github/               # GitHub configs (issues, PR templates, actions)
 </code></pre>
@@ -24,7 +24,7 @@ examples/              # Usage examples (e.g., TTL)
   
 ## 📖 Documentation
 
-Refer to the full documentation at [`docs/index.md`](docs/index.md) or the published version at [https://w3id.org/cfc](https://w3id.org/cfc).
+Refer to the full documentation at [`docs/index.html`](docs/index.html) or the published version at [https://w3id.org/cfc](https://w3id.org/cfc).
 
 ## 🧑‍💻 Contributing
 
@@ -32,7 +32,7 @@ Please see [`CONTRIBUTING.md`](CONTRIBUTING.md) for details on how to contribute
 
 ## 📄 License
 
-This ontology is released under the [MIT License](LICENSE).
+This ontology is licensed under the **[Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)** license.
 
 ---
 
