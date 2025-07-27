@@ -1,34 +1,33 @@
-About Widoco output
-===================
-The purpose of Widoco is to reuse and integrate existing tools for documentation, plus the set of features listed below:
-* Separation of the sections of your html page so you can write them independently and replace only those needed.
-* Automatic annotation in RDF-a of the html produced.
-* Association of a provenance page which includes the history of your vocabulary (W3C PROV-O compliant).
-* Metadata extraction from the ontology plus the means to complete it on the fly when generating your ontology.
-* Guidelines on the main sections that your document should have and how to complete them.
+About This Documentation
+=========================
+This documentation was generated using Widoco and customized for the **CFC Ontology (Circular Future Cities Material Passport Ontology)** project. Widoco integrates existing tools to produce enriched, modular ontology documentation.
 
-Widoco will create 3 different folders:
+Features used for CFC Ontology include:
+* Modular separation of HTML sections, making updates and maintenance easier.
+* Automatic RDFa annotation for semantic enrichment.
+* Provenance documentation in W3C PROV-O format, recording vocabulary evolution.
+* Extraction of metadata from the ontology and enhancement through `widoco.conf`.
+* Guidelines and templates for structured documentation of ontology structure, usage, and references.
+
+Directory structure:
 |
-|-provenance (a folder including an html and RDF serialization of how the documentation page was created)
-|-resources (folder with the different resources)
-|-sections (folder with the different sections of the documentation, separated for easy editing. Just edit one and the main page will be updated)
+|- `provenance/` — Contains metadata on how the documentation was generated (HTML and RDF).
+|- `resources/` — Icons, style sheets, and related visualization files.
+|- `sections/` — Independently editable HTML fragments for each documentation block (e.g., abstract, introduction, cross-reference).
 
-Completing ontology metadata.
-===================
-Widoco uses the ontology metadata to update a configuration file. If you complete that configuration file (ended up widoco.conf), the tool will enhance your html with additional details, such as how to cite the document, previous revisions, icons with the licence, etc.
+Customizing Ontology Metadata
+=============================
+The `widoco.conf` file enhances the generated HTML with citation metadata, licensing icons, and versioning. It is populated using the ontology’s RDF metadata and can be manually refined for accuracy and completeness.
 
-Browser issues
-==========
-The result of executing Widoco is an html file. We have tested it in Mozilla, IE and Chrome, and when the page is stored in a server all the browsers work correctly. If you view the file locally, we recommend you to use Mozilla Firefox (or Internet Explorer, if you must). Google Chrome will not show the contents correctly, as it doesn't allow  XMLHttpRequest without HTTP. If you want to view the page locally with Google Chrome you have two possibilities:
+Local Viewing Considerations
+============================
+Widoco output is an HTML file set. For proper local viewing, Firefox or Internet Explorer are recommended. Chrome blocks local `XMLHttpRequest` by default; to view locally in Chrome, use one of the following:
 
-a) Place the file in a server and access it via its URL (for example, put it in dropbox and access through its public url).
+* Serve via a local server or Dropbox public URL
+* Or launch Chrome with file access enabled:
 
-b) Execute Chrome with the following commands :
+  - (Windows) `chrome.exe --allow-file-access-from-files`
+  - (macOS) `open /Applications/Google\ Chrome.app/ --args --allow-file-access-from-files`
+  - (Linux) `/usr/bin/google-chrome --allow-file-access-from-files`
 
-(WIN) chrome.exe --allow-file-access-from-files,
-
-(OSX) open /Applications/Google\ Chrome.app/ --args --allow-file-access-from-files
-
-(UNX) /usr/bin/google-chrome --allow-file-access-from-files
-
-Do you have a problem? open an issue at https://github.com/dgarijo/Widoco
+For issues with Widoco, visit: https://github.com/dgarijo/Widoco
