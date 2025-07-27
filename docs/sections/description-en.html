@@ -1,0 +1,115 @@
+<h2 id="desc" class="list">CFC Ontology - Complete Circular Future Cities Material Passport: Description <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+
+<span class="markdown">An OWL ontology integrating city-scale material passports, building topology, material types, lifecycle agents, and circular economy concepts (CEO & CAMO), explicitly aligned with OntoCityGML.</span>
+
+
+<p>Below is an overview of the major class hierarchies and their intended usage.</p>
+
+<div style="text-align: center; margin: 2em 0;">
+  <img src="../resources/figure.jpg" alt="Simplified visualisation" style="max-width: 100%; height: auto; border: 1px solid var(--border); box-shadow: 0 0 5px var(--shadow-color);" />
+  <div style="font-style: italic; margin-top: 0.5em;">Simplified visualisation</div>
+</div>
+
+
+<h4>City and Sector</h4>
+<ul>
+  <li><strong>cfc:City</strong>
+    <ul>
+      <li>Subclass of <code>ocg:City</code> (OntoCityGML).</li>
+      <li>Represents an entire city or municipality.</li>
+      <li>Restriction: <code>cfc:hasSector</code> → <code>cfc:Sector</code>.</li>
+    </ul>
+  </li>
+  <li><strong>cfc:Sector</strong>
+    <ul>
+      <li>Subclass of <code>ocg:CityObject</code> (OntoCityGML).</li>
+      <li>Represents a neighborhood, planning district, or administrative subregion within a city.</li>
+      <li>Restriction: <code>cfc:hasBuilding</code> → <code>bot:Building</code>.</li>
+    </ul>
+  </li>
+</ul>
+<p><strong>Notes on Alignment:</strong></p>
+<ul>
+  <li>We do <strong>not</strong> subclass <code>cfc:Sector</code> under <code>bot:Zone</code> because <code>bot:Zone</code> is intended for smaller site contexts. Instead, <code>cfc:Sector</code> is directly an <code>ocg:CityObject</code>, enabling integration with 3D city models.</li>
+</ul>
+
+<h4>Buildings and Components</h4>
+<ul>
+  <li><strong>BOT Imported Classes:</strong> <code>bot:Building</code>, <code>bot:Site</code>, <code>bot:Storey</code>, <code>bot:Space</code>, <code>bot:Element</code>.</li>
+  <li><strong>cfc:BuildingComponent</strong>
+    <ul>
+      <li>Subclass of <code>bot:Element</code> and <code>ocg:CityObject</code>.</li>
+      <li>Represents any physical building element or assembly within a building (e.g., walls, beams).</li>
+    </ul>
+  </li>
+  <li><strong>Component Subclasses:</strong> Subclasses of <code>cfc:BuildingComponent</code> and <code>ocg:CityObject</code>. Some include <code>bpo:assembly</code>.
+    <ul>
+      <li><code>cfc:Window</code>, <code>cfc:Door</code>, <code>cfc:Roof</code>, <code>cfc:Beam</code>, <code>cfc:Column</code>, <code>cfc:Wall</code>, <code>cfc:Stair</code>, <code>cfc:Floor</code>, <code>cfc:Foundation</code>, <code>cfc:KitchenComponent</code> (<code>bpo:assembly</code>), <code>cfc:PlumbingComponent</code>, <code>cfc:ElectricalComponent</code>, <code>cfc:MechanicalComponent</code>, <code>cfc:HVACComponent</code>:
+        <ul>
+          <li><code>cfc:HeatingComponent</code>, <code>cfc:VentilationComponent</code></li>
+        </ul>
+      </li>
+      <li><code>cfc:PlasterComponent</code>, <code>cfc:CladdingComponent</code>, <code>cfc:WindowCurtainWallComponent</code> (<code>bpo:assembly</code>)</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Materials and Material Resources</h4>
+<ul>
+  <li><strong>cfc:Material</strong>
+    <ul>
+      <li>Subclass of <code>dicbm:Material</code>. Models any building material (e.g., concrete, steel).</li>
+    </ul>
+  </li>
+  <li><strong>Material Subclasses:</strong>
+    <ul>
+      <li><code>cfc:StructuralSteel</code>, <code>cfc:CopperMaterial</code>, <code>cfc:AluminumMaterial</code>, <code>cfc:BrassMaterial</code>, <code>cfc:StainlessSteelMaterial</code>, <code>cfc:TimberMaterial</code>, <code>cfc:ConcreteMaterial</code>, <code>cfc:BrickMaterial</code>, <code>cfc:GlassMaterial</code>, <code>cfc:GypsumBoardMaterial</code>, <code>cfc:InsulationMaterial</code>, <code>cfc:WaterproofingMaterial</code>, <code>cfc:FlooringMaterial</code>, <code>cfc:PaintMaterial</code></li>
+    </ul>
+  </li>
+  <li><strong>cfc:MaterialResource</strong>
+    <ul>
+      <li>Subclass of <code>ceo:Resource</code>. Represents a retrievable quantity of a <code>cfc:Material</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<h4>Lifecycle Events</h4>
+<p>Each event class is a subclass of both <code>dicp:Activity</code> and <code>prov:Activity</code>.</p>
+<ul>
+  <li><code>cfc:DemolitionEvent</code>: Demolition generating <code>cfc:MaterialResource</code>.</li>
+  <li><code>cfc:ConstructionEvent</code>: Construction or installation.</li>
+  <li><code>cfc:RenovationEvent</code>: Upgrade without full demolition.</li>
+  <li><code>cfc:MaintenanceEvent</code>: Upkeep or servicing.</li>
+  <li><code>cfc:DesignEvent</code>: Design or planning activity.</li>
+</ul>
+
+<h4>Agent Roles</h4>
+<p>All subclass <code>dica:StakeholderRole</code>. Attach via <code>dica:hasRole</code>.</p>
+<ul>
+  <li><code>cfc:UrbanPlannerRole</code>, <code>cfc:ArchitectRole</code>, <code>cfc:EngineerRole</code>, <code>cfc:ConsultantRole</code>, <code>cfc:ContractorRole</code>, <code>cfc:ManufacturerRole</code>, <code>cfc:EndUserRole</code>, <code>cfc:DeconstructorRole</code>, <code>cfc:DemolitionContractorRole</code>, <code>cfc:ReclaimerRole</code>, <code>cfc:SalvageContractorRole</code></li>
+</ul>
+
+<h4>Circular Exchange (CEO) Concepts</h4>
+<ul>
+  <li><strong>cfc:MaterialOffer</strong>: Subclass of <code>ceo:Offer</code>.</li>
+  <li><strong>cfc:MaterialRequest</strong>: Subclass of <code>ceo:Request</code>.</li>
+  <li><strong>cfc:MaterialTransaction</strong>: Subclass of <code>ceo:Transaction</code>.</li>
+</ul>
+<p><strong>Key Properties:</strong></p>
+<ul>
+  <li><code>cfc:makesOffer</code> &lt;subPropertyOf <code>ceo:offeredBy</code>&gt;</li>
+  <li><code>cfc:makesRequest</code> &lt;subPropertyOf <code>ceo:requestedBy</code>&gt;</li>
+  <li><code>cfc:participatesInTransaction</code> &lt;subPropertyOf <code>ceo:involvesAgent</code>&gt;</li>
+</ul>
+
+<h4>Circular Asset Management (CAMO) Concepts</h4>
+<ul>
+  <li><strong>cfc:Asset</strong>: Subclass of <code>camo:Asset</code>.</li>
+  <li><strong>cfc:AssetCondition</strong>: Subclass of <code>camo:AssetCondition</code>.</li>
+  <li><strong>cfc:WorkOrder</strong>: Subclass of <code>camo:WorkOrder</code>.</li>
+</ul>
+<p><strong>Key Properties:</strong></p>
+<ul>
+  <li><code>cfc:assignedToAsset</code> &lt;subPropertyOf <code>camo:responsibleForAsset</code>&gt;</li>
+  <li><code>cfc:ordersWork</code> &lt;subPropertyOf <code>camo:orders</code>&gt;</li>
+</ul>

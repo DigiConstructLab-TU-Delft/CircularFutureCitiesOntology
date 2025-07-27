@@ -1,0 +1,80 @@
+<h2 id="overv" class="list">CFC Ontology - Overview <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<div class="markdown">
+<h3>1. Introduction</h3>
+<p>Its purpose is to model material‐passport data at multiple levels—from city sectors down to individual components—so that queries can traverse from topological zones (city/sector/building) through to material resources and stakeholder actions. By importing and aligning existing ontologies, CFC remains modular, extensible, and interoperable with other Linked‐Data ecosystems.</p><p>> <strong>Published Context</strong>: This ontology was published as part of the <strong>Future Cities Laboratory’s Circular Future Cities</strong> project, under the Singapore-ETH Centre collaboration.</p><p>---
+</ul></p><h3>2. Namespace Prefixes</h3>
+<p><code></code>`turtle
+@prefix owl:    <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:    <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:    <http://www.w3.org/2001/XMLSchema#> .
+@prefix time:   <http://www.w3.org/2006/time#> .
+@prefix prov:   <http://www.w3.org/ns/prov#> .
+@prefix bot:    <https://w3id.org/bot#> .
+@prefix bpo:    <https://w3id.org/bpo#> .
+@prefix dica:   <https://w3id.org/digitalconstruction/Agents#> .
+@prefix dicp:   <https://w3id.org/digitalconstruction/Processes#> .
+@prefix dicl:   <https://w3id.org/digitalconstruction/Lifecycle#> .
+@prefix dicbm:  <https://w3id.org/digitalconstruction/BuildingMaterials#> .
+@prefix omg:    <http://w3id.org/omg#> .
+@prefix opm:    <https://w3c-lbd-cg.github.io/opm#> .
+@prefix ceo:    <http://ld-ce.com/vocab/CEO#> .
+@prefix camo:   <http://ld-ce.com/vocab/CAMO#> .
+@prefix ocg:    <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#> .
+@prefix cfc:    <https://w3id.org/cfc#> .
+<code></code>`
+<li><strong>cfc:</strong> The base namespace of this ontology, published at <code>https://w3id.org/cfc</code>.</li>
+<li><strong>ocg:</strong> OntoCityGML vocabulary for city‐scale 3D modeling.</li>
+<li><strong>bot:</strong> Building Topology Ontology (core concepts like Building, Site, Storey).</li>
+<li><strong>bpo:</strong> Building Product Ontology (assemblies, products).</li>
+<li><strong>dica/dicp/dicl/dicbm:</strong> Digital Construction Information (Agents, Processes, Lifecycle, Materials).</li>
+<li><strong>omg:</strong> Ontology for Managing Geometry (links spatial geometry to objects).</li>
+<li><strong>opm:</strong> Ontology for Property Management (tracks property evolution over time).</li>
+<li><strong>ceo:</strong> Circular Exchange Ontology (Offers, Requests, Transactions).</li>
+<li><strong>camo:</strong> Circular Asset Management Ontology (Assets, AssetCondition, WorkOrder).</li></p><p>---
+</ul></p><h3>3. Ontology Imports</h3>
+<p>1. <strong>OntoCityGML</strong>
+   URL: <code>https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl</code>
+<li>Provides classes such as <code>ocg:City</code>, <code>ocg:CityObject</code>, <code>ocg:Building</code>, <code>ocg:Site</code>, <code>ocg:BuildingPart</code>, and geometry properties like <code>ocg:containsCityObject</code>.</li></p><p>2. <strong>BOT (Building Topology Ontology)</strong>
+   URL: <code>https://w3id.org/bot</code>
+<li>Offers classes like <code>bot:Building</code>, <code>bot:Site</code>, <code>bot:Storey</code>, <code>bot:Space</code>, <code>bot:Element</code>, and properties such as <code>bot:containsZone</code>.</li></p><p>3. <strong>BPO (Building Product Ontology)</strong>
+   URL: <code>https://w3id.org/bpo</code>
+<li>Defines <code>bpo:assembly</code> and other product‐level classes for representing assemblies.</li></p><p>4. <strong>DIC Agents</strong>
+   URL: <code>https://w3id.org/digitalconstruction/Agents</code>
+<li>Defines classes <code>dica:Agent</code>, <code>dica:Person</code>, <code>dica:Organization</code>, and roles under <code>dica:StakeholderRole</code>.</li></p><p>5. <strong>DIC Materials</strong>
+   URL: <code>https://w3id.org/digitalconstruction/Materials</code>
+<li>Defines <code>dicbm:Material</code> and related classes for describing building materials and their properties.</li></p><p>6. <strong>DIC Lifecycle</strong>
+   URL: <code>https://w3id.org/digitalconstruction/Lifecycle</code>
+<li>Defines <code>dicl:LifecycleStage</code> and associated process/activity classes.</li></p><p>7. <strong>OMG (Ontology for Managing Geometry)</strong>
+   URL: <code>http://w3id.org/omg</code>
+<li>Defines <code>omg:Geometry</code> and <code>omg:GeometryState</code>, with properties like <code>omg:hasGeometry</code>, <code>omg:lodLevel</code>, and geometry serialization (e.g., <code>omg:asGML</code>, <code>omg:asIFC</code>).</li></p><p>8. <strong>OPM (Ontology for Property Management)</strong>
+   URL: <code>https://w3c-lbd-cg.github.io/opm</code>
+<li>Enables tracking how property values evolve over time, linking to provenance and metadata.</li></p><p>9. <strong>CEO (Circular Exchange Ontology)</strong>
+   URL: <code>http://ld-ce.com/vocab/CEO</code>
+<li>Defines <code>ceo:Offer</code>, <code>ceo:Request</code>, <code>ceo:Transaction</code>, and properties like <code>ceo:offeredBy</code>, <code>ceo:requestedBy</code>, <code>ceo:involvesAgent</code>.</li></p><p>10. <strong>CAMO (Circular Asset Management Ontology)</strong>
+    URL: <code>http://ld-ce.com/vocab/CAMO</code>
+<li>Provides classes <code>camo:Asset</code>, <code>camo:AssetCondition</code>, <code>camo:WorkOrder</code>, and properties such as <code>camo:responsibleForAsset</code>, <code>camo:orders</code>.</li></p><p>---
+</ul></p><h3>4. High‐Level Structure</h3>
+<p>Below is an overview of the major class hierarchies and their intended usage.</p><h3>City and Sector</h3>
+<p><strong>Notes on Alignment</strong>
+<li>We do <strong>not</strong> subclass <code>cfc:Sector</code> under <code>bot:Zone</code>, because <code>bot:Zone</code> is intended for smaller site contexts. Instead, <code>cfc:Sector</code> is directly an <code>ocg:CityObject</code>, which allows integration within 3D city models.</li>
+</ul></p><h3>Buildings and Components</h3>
+<h3>Materials and Material Resources</h3>
+<h3>Lifecycle Events</h3>
+<h3>Agent Roles</h3>
+<h3>Circular Exchange (CEO) Concepts</h3>
+<p>Key properties:
+<li><strong>cfc\:makesOffer</strong> <subPropertyOf ceo:offeredBy></li>
+  Domain: <code>dica:Agent</code> → Range: <code>cfc:MaterialOffer</code>.
+<li><strong>cfc\:makesRequest</strong> <subPropertyOf ceo:requestedBy></li>
+  Domain: <code>dica:Agent</code> → Range: <code>cfc:MaterialRequest</code>.
+<li><strong>cfc\:participatesInTransaction</strong> <subPropertyOf ceo:involvesAgent></li>
+  Domain: <code>dica:Agent</code> → Range: <code>cfc:MaterialTransaction</code>.
+</ul></p><h3>Circular Asset Management (CAMO) Concepts</h3>
+<p>Key properties:
+<li><strong>cfc\:assignedToAsset</strong> <subPropertyOf camo:responsibleForAsset></li>
+  Domain: <code>dica:Agent</code> → Range: <code>cfc:Asset</code>.
+<li><strong>cfc\:ordersWork</strong> <subPropertyOf camo:orders></li>
+  Domain: <code>dica:Agent</code> → Range: <code>cfc:WorkOrder</code>.</p><p>---
+</ul></p>
+</div>

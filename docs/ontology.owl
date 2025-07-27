@@ -1,0 +1,1202 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://w3id.org/cfc#CompleteOntology#"
+     xml:base="https://w3id.org/cfc#CompleteOntology"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ns="http://www.w3.org/2003/06/sw-vocab-status/ns#"
+     xmlns:ns2="http://www.w3.org/2006/vcard/ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="https://schema.org/"
+     xmlns:schema1="http://schema.org/">
+    <owl:Ontology rdf:about="https://w3id.org/cfc#CompleteOntology">
+        <owl:imports rdf:resource="http://ld-ce.com/vocab/CAMO"/>
+        <owl:imports rdf:resource="http://ld-ce.com/vocab/CEO"/>
+        <owl:imports rdf:resource="http://w3id.org/omg"/>
+        <owl:imports rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl"/>
+        <owl:imports rdf:resource="https://w3c-lbd-cg.github.io/opm"/>
+        <owl:imports rdf:resource="https://w3id.org/bot"/>
+        <owl:imports rdf:resource="https://w3id.org/bpo"/>
+        <owl:imports rdf:resource="https://w3id.org/digitalconstruction/Agents"/>
+        <owl:imports rdf:resource="https://w3id.org/digitalconstruction/Lifecycle"/>
+        <owl:imports rdf:resource="https://w3id.org/digitalconstruction/Materials"/>
+        <rdfs:comment xml:lang="en">An OWL ontology integrating city-scale material passports, building topology, material types, lifecycle agents, and circular economy concepts (CEO &amp; CAMO), explicitly aligned with OntoCityGML.</rdfs:comment>
+        <rdfs:label xml:lang="en">CFC Ontology - Complete Circular Future Cities Material Passport</rdfs:label>
+        <owl:versionInfo>1.2</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://ld-ce.com/vocab/CAMO#orders -->
+
+
+    <owl:ObjectProperty rdf:about="http://ld-ce.com/vocab/CAMO#orders"/>
+    
+
+
+    <!-- http://ld-ce.com/vocab/CAMO#responsibleForAsset -->
+
+
+    <owl:ObjectProperty rdf:about="http://ld-ce.com/vocab/CAMO#responsibleForAsset"/>
+    
+
+
+    <!-- http://ld-ce.com/vocab/CEO#involvesAgent -->
+
+
+    <owl:ObjectProperty rdf:about="http://ld-ce.com/vocab/CEO#involvesAgent"/>
+    
+
+
+    <!-- http://ld-ce.com/vocab/CEO#offeredBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://ld-ce.com/vocab/CEO#offeredBy"/>
+    
+
+
+    <!-- http://ld-ce.com/vocab/CEO#requestedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://ld-ce.com/vocab/CEO#requestedBy"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#generated -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#generated"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasAssociatedWith -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#containsCityObject -->
+
+
+    <owl:ObjectProperty rdf:about="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#containsCityObject"/>
+    
+
+
+    <!-- https://w3id.org/cfc#assignedToAsset -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#assignedToAsset">
+        <rdfs:subPropertyOf rdf:resource="http://ld-ce.com/vocab/CAMO#responsibleForAsset"/>
+        <rdfs:domain rdf:resource="https://w3id.org/digitalconstruction/Agents#Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/cfc#Asset"/>
+        <rdfs:comment xml:lang="en">Indicates that an Agent (e.g., inspector, maintenance crew) is responsible for a specific Asset.</rdfs:comment>
+        <rdfs:label xml:lang="en">assignedToAsset</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#derivedFromComponent -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#derivedFromComponent">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasDerivedFrom"/>
+        <rdfs:domain rdf:resource="https://w3id.org/cfc#MaterialResource"/>
+        <rdfs:range rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">Links a recovered MaterialResource to the original building component it came from.</rdfs:comment>
+        <rdfs:label xml:lang="en">derivedFromComponent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#generatesResource -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#generatesResource">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#generated"/>
+        <rdfs:domain rdf:resource="https://w3id.org/cfc#DemolitionEvent"/>
+        <rdfs:range rdf:resource="https://w3id.org/cfc#MaterialResource"/>
+        <rdfs:comment xml:lang="en">Indicates that a demolition event generates a certain material resource for reuse.</rdfs:comment>
+        <rdfs:label xml:lang="en">generatesResource</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#hasBuilding -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#hasBuilding">
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#containsCityObject"/>
+        <rdfs:domain rdf:resource="https://w3id.org/cfc#Sector"/>
+        <rdfs:range rdf:resource="https://w3id.org/bot#Building"/>
+        <rdfs:comment xml:lang="en">Relates a Sector to a Building located within it.</rdfs:comment>
+        <rdfs:label xml:lang="en">hasBuilding</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#hasDemolitionEvent -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#hasDemolitionEvent">
+        <rdfs:domain rdf:resource="https://w3id.org/bot#Building"/>
+        <rdfs:range rdf:resource="https://w3id.org/cfc#DemolitionEvent"/>
+        <rdfs:comment xml:lang="en">Associates a Building with its planned or actual Demolition event.</rdfs:comment>
+        <rdfs:label xml:lang="en">hasDemolitionEvent</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#hasMaterial -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#hasMaterial">
+        <rdfs:domain rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:range rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Indicates a material that a building component is made of.</rdfs:comment>
+        <rdfs:label xml:lang="en">hasMaterial</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#hasSector -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#hasSector">
+        <rdfs:subPropertyOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#containsCityObject"/>
+        <rdfs:domain rdf:resource="https://w3id.org/cfc#City"/>
+        <rdfs:range rdf:resource="https://w3id.org/cfc#Sector"/>
+        <rdfs:comment xml:lang="en">Relates a City to a Sector (district within the city).</rdfs:comment>
+        <rdfs:label xml:lang="en">hasSector</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#makesOffer -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#makesOffer">
+        <rdfs:subPropertyOf rdf:resource="http://ld-ce.com/vocab/CEO#offeredBy"/>
+        <rdfs:domain rdf:resource="https://w3id.org/digitalconstruction/Agents#Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/cfc#MaterialOffer"/>
+        <rdfs:comment xml:lang="en">Links an Agent to a MaterialOffer they create.</rdfs:comment>
+        <rdfs:label xml:lang="en">makesOffer</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#makesRequest -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#makesRequest">
+        <rdfs:subPropertyOf rdf:resource="http://ld-ce.com/vocab/CEO#requestedBy"/>
+        <rdfs:domain rdf:resource="https://w3id.org/digitalconstruction/Agents#Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/cfc#MaterialRequest"/>
+        <rdfs:comment xml:lang="en">Links an Agent to a MaterialRequest they create.</rdfs:comment>
+        <rdfs:label xml:lang="en">makesRequest</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#offeredBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#offeredBy">
+        <rdfs:domain rdf:resource="https://w3id.org/cfc#MaterialResource"/>
+        <rdfs:range rdf:resource="https://w3id.org/digitalconstruction/Agents#Agent"/>
+        <rdfs:comment xml:lang="en">The agent offering this material resource for reuse.</rdfs:comment>
+        <rdfs:label xml:lang="en">offeredBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#ordersWork -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#ordersWork">
+        <rdfs:subPropertyOf rdf:resource="http://ld-ce.com/vocab/CAMO#orders"/>
+        <rdfs:domain rdf:resource="https://w3id.org/digitalconstruction/Agents#Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/cfc#WorkOrder"/>
+        <rdfs:comment xml:lang="en">Indicates that an Agent issues a WorkOrder for an Asset (e.g., scheduling maintenance, demolition, or reclamation).</rdfs:comment>
+        <rdfs:label xml:lang="en">ordersWork</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#participatesInTransaction -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#participatesInTransaction">
+        <rdfs:subPropertyOf rdf:resource="http://ld-ce.com/vocab/CEO#involvesAgent"/>
+        <rdfs:domain rdf:resource="https://w3id.org/digitalconstruction/Agents#Agent"/>
+        <rdfs:range rdf:resource="https://w3id.org/cfc#MaterialTransaction"/>
+        <rdfs:comment xml:lang="en">Associates an Agent with a completed MaterialTransaction.</rdfs:comment>
+        <rdfs:label xml:lang="en">participatesInTransaction</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#performedBy -->
+
+
+    <owl:ObjectProperty rdf:about="https://w3id.org/cfc#performedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/ns/prov#wasAssociatedWith"/>
+        <rdfs:domain rdf:resource="https://w3id.org/digitalconstruction/Processes#Activity"/>
+        <rdfs:range rdf:resource="https://w3id.org/digitalconstruction/Agents#Agent"/>
+        <rdfs:comment xml:lang="en">Indicates the Agent (person or organization) that performs an activity (e.g., demolition, construction, renovation, maintenance, design).</rdfs:comment>
+        <rdfs:label xml:lang="en">performedBy</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://w3id.org/cfc#hasLoadCapacity -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/cfc#hasLoadCapacity">
+        <rdfs:domain rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Specifies the load-bearing capacity (e.g., in kN or MPa) of a structural component or material.</rdfs:comment>
+        <rdfs:label xml:lang="en">hasLoadCapacity</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#quantity -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/cfc#quantity">
+        <rdfs:domain rdf:resource="https://w3id.org/cfc#MaterialResource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment xml:lang="en">Quantity of material available (in a specified unit, e.g., kg or count).</rdfs:comment>
+        <rdfs:label xml:lang="en">quantity</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://w3id.org/cfc#unit -->
+
+
+    <owl:DatatypeProperty rdf:about="https://w3id.org/cfc#unit">
+        <rdfs:domain rdf:resource="https://w3id.org/cfc#MaterialResource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment xml:lang="en">Unit of the quantity (e.g., &apos;kg&apos;, &apos;m^2&apos;).</rdfs:comment>
+        <rdfs:label xml:lang="en">unit</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://ld-ce.com/vocab/CAMO#Asset -->
+
+
+    <owl:Class rdf:about="http://ld-ce.com/vocab/CAMO#Asset"/>
+    
+
+
+    <!-- http://ld-ce.com/vocab/CAMO#AssetCondition -->
+
+
+    <owl:Class rdf:about="http://ld-ce.com/vocab/CAMO#AssetCondition"/>
+    
+
+
+    <!-- http://ld-ce.com/vocab/CAMO#WorkOrder -->
+
+
+    <owl:Class rdf:about="http://ld-ce.com/vocab/CAMO#WorkOrder"/>
+    
+
+
+    <!-- http://ld-ce.com/vocab/CEO#Offer -->
+
+
+    <owl:Class rdf:about="http://ld-ce.com/vocab/CEO#Offer"/>
+    
+
+
+    <!-- http://ld-ce.com/vocab/CEO#Request -->
+
+
+    <owl:Class rdf:about="http://ld-ce.com/vocab/CEO#Request"/>
+    
+
+
+    <!-- http://ld-ce.com/vocab/CEO#Resource -->
+
+
+    <owl:Class rdf:about="http://ld-ce.com/vocab/CEO#Resource"/>
+    
+
+
+    <!-- http://ld-ce.com/vocab/CEO#Transaction -->
+
+
+    <owl:Class rdf:about="http://ld-ce.com/vocab/CEO#Transaction"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Activity -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Building -->
+
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Building"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#BuildingPart -->
+
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#BuildingPart"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#City -->
+
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#City"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject -->
+
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+    
+
+
+    <!-- https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Site -->
+
+
+    <owl:Class rdf:about="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Site"/>
+    
+
+
+    <!-- https://w3id.org/bot#Building -->
+
+
+    <rdf:Description rdf:about="https://w3id.org/bot#Building">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Building"/>
+        <rdfs:comment xml:lang="en">BOT Building aligned as a subclass of OntoCityGML Building.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/bot#Site -->
+
+
+    <rdf:Description rdf:about="https://w3id.org/bot#Site">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Site"/>
+        <rdfs:comment xml:lang="en">BOT Site aligned as a subclass of OntoCityGML Site.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/bot#Space -->
+
+
+    <rdf:Description rdf:about="https://w3id.org/bot#Space">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#BuildingPart"/>
+        <rdfs:comment xml:lang="en">BOT Space aligned as a subclass of OntoCityGML BuildingPart.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/bot#Storey -->
+
+
+    <rdf:Description rdf:about="https://w3id.org/bot#Storey">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#BuildingPart"/>
+        <rdfs:comment xml:lang="en">BOT Storey aligned as a subclass of OntoCityGML BuildingPart.</rdfs:comment>
+    </rdf:Description>
+    
+
+
+    <!-- https://w3id.org/bpo#assembly -->
+
+
+    <owl:Class rdf:about="https://w3id.org/bpo#assembly"/>
+    
+
+
+    <!-- https://w3id.org/cfc#AluminumMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#AluminumMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Aluminum material commonly used for window frames, façade cladding, and structural elements; valued for its light weight and recyclability.</rdfs:comment>
+        <rdfs:label xml:lang="en">AluminumMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#ArchitectRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#ArchitectRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+        <rdfs:comment xml:lang="en">Role of an agent responsible for architectural design of buildings.</rdfs:comment>
+        <rdfs:label xml:lang="en">ArchitectRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Asset -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Asset">
+        <rdfs:subClassOf rdf:resource="http://ld-ce.com/vocab/CAMO#Asset"/>
+        <rdfs:comment xml:lang="en">A tangible building asset or component tracked over its lifecycle.</rdfs:comment>
+        <rdfs:label xml:lang="en">Asset</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#AssetCondition -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#AssetCondition">
+        <rdfs:subClassOf rdf:resource="http://ld-ce.com/vocab/CAMO#AssetCondition"/>
+        <rdfs:comment xml:lang="en">Represents the condition state of an Asset (e.g., new, in-use, worn, end-of-life).</rdfs:comment>
+        <rdfs:label xml:lang="en">AssetCondition</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Beam -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Beam">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A horizontal structural member that supports loads.</rdfs:comment>
+        <rdfs:label xml:lang="en">Beam</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#BrassMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#BrassMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Brass material used in high-value fittings and fixtures (such as door hardware, taps, and decorative elements); fully recyclable.</rdfs:comment>
+        <rdfs:label xml:lang="en">BrassMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#BrickMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#BrickMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Brick material including clay bricks and concrete masonry units, commonly used for walls, façades, and paving.</rdfs:comment>
+        <rdfs:label xml:lang="en">BrickMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#BuildingComponent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#BuildingComponent">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bot#Element"/>
+        <rdfs:comment xml:lang="en">A physical building element or component that is part of a building (e.g., wall, window, beam).</rdfs:comment>
+        <rdfs:label xml:lang="en">BuildingComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#City -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#City">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#City"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/cfc#hasSector"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/cfc#Sector"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A city or municipality containing districts and buildings.</rdfs:comment>
+        <rdfs:label xml:lang="en">City</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#CladdingComponent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#CladdingComponent">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">An external cladding component, such as siding, panels, or curtain walls.</rdfs:comment>
+        <rdfs:label xml:lang="en">CladdingComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Column -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Column">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A vertical structural member that supports loads.</rdfs:comment>
+        <rdfs:label xml:lang="en">Column</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#ConcreteMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#ConcreteMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Concrete material used in foundations, slabs, walls, and precast elements; typically a mixture of cement, aggregates, and water.</rdfs:comment>
+        <rdfs:label xml:lang="en">ConcreteMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#ConstructionEvent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#ConstructionEvent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Processes#Activity"/>
+        <rdfs:comment xml:lang="en">An event of constructing or installing a building or component.</rdfs:comment>
+        <rdfs:label xml:lang="en">ConstructionEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#ConsultantRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#ConsultantRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+        <rdfs:comment xml:lang="en">Role of an agent providing specialized consultancy (e.g., sustainability, energy modeling, materials advice).</rdfs:comment>
+        <rdfs:label xml:lang="en">ConsultantRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#ContractorRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#ContractorRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+        <rdfs:comment xml:lang="en">Role of an agent responsible for construction management and execution.</rdfs:comment>
+        <rdfs:label xml:lang="en">ContractorRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#CopperMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#CopperMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Copper material used in electrical wiring, plumbing, and other high-value applications, highly recyclable.</rdfs:comment>
+        <rdfs:label xml:lang="en">CopperMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#DeconstructorRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#DeconstructorRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+        <rdfs:comment xml:lang="en">Role of an agent skilled in systematic deconstruction to recover materials for reuse.</rdfs:comment>
+        <rdfs:label xml:lang="en">DeconstructorRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#DemolitionContractorRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#DemolitionContractorRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+        <rdfs:comment xml:lang="en">Role of an agent responsible for demolition activities (typically less selective than deconstruction).</rdfs:comment>
+        <rdfs:label xml:lang="en">DemolitionContractorRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#DemolitionEvent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#DemolitionEvent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Processes#Activity"/>
+        <rdfs:comment xml:lang="en">An event or process where a building (or part) is demolished, yielding material resources.</rdfs:comment>
+        <rdfs:label xml:lang="en">DemolitionEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#DesignEvent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#DesignEvent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Processes#Activity"/>
+        <rdfs:comment xml:lang="en">An event representing the design or planning phase for a building, component, or system.</rdfs:comment>
+        <rdfs:label xml:lang="en">DesignEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Door -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Door">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#assembly"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A door component, including frame and leaf, used for building access.</rdfs:comment>
+        <rdfs:label xml:lang="en">Door</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#ElectricalComponent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#ElectricalComponent">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">An electrical system component, such as wiring, outlets, panels, and fixtures.</rdfs:comment>
+        <rdfs:label xml:lang="en">ElectricalComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#EndUserRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#EndUserRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+        <rdfs:comment xml:lang="en">Role of an agent that occupies or operates a building (e.g., tenant, owner-occupant, facility manager).</rdfs:comment>
+        <rdfs:label xml:lang="en">EndUserRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#EngineerRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#EngineerRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+        <rdfs:comment xml:lang="en">Role of an agent responsible for engineering analysis, structural calculations, or system design.</rdfs:comment>
+        <rdfs:label xml:lang="en">EngineerRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Floor -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Floor">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A floor component providing horizontal surface within a building.</rdfs:comment>
+        <rdfs:label xml:lang="en">Floor</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#FlooringMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#FlooringMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Flooring material, such as wood, tile, vinyl, or carpet.</rdfs:comment>
+        <rdfs:label xml:lang="en">FlooringMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Foundation -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Foundation">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A foundation component transmitting building loads to the ground.</rdfs:comment>
+        <rdfs:label xml:lang="en">Foundation</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#GlassMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#GlassMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Glass material used in windows, curtain walls, and other glazed assemblies.</rdfs:comment>
+        <rdfs:label xml:lang="en">GlassMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#GypsumBoardMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#GypsumBoardMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Gypsum board (drywall) material used for interior partition walls and ceilings.</rdfs:comment>
+        <rdfs:label xml:lang="en">GypsumBoardMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#HVACComponent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#HVACComponent">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A heating, ventilation, and air conditioning component.</rdfs:comment>
+        <rdfs:label xml:lang="en">HVACComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#HeatingComponent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#HeatingComponent">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#HVACComponent"/>
+        <rdfs:comment xml:lang="en">A heating system component, such as boilers, radiators, or heaters.</rdfs:comment>
+        <rdfs:label xml:lang="en">HeatingComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#InsulationMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#InsulationMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Thermal or acoustic insulation material, such as fiberglass, foam, or rock wool.</rdfs:comment>
+        <rdfs:label xml:lang="en">InsulationMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#KitchenComponent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#KitchenComponent">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#assembly"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A kitchen component, such as cabinetry, countertops, or built-in appliances.</rdfs:comment>
+        <rdfs:label xml:lang="en">KitchenComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#MaintenanceEvent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#MaintenanceEvent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Processes#Activity"/>
+        <rdfs:comment xml:lang="en">An event in which regular upkeep, repair, or servicing activities are performed on a building or component.</rdfs:comment>
+        <rdfs:label xml:lang="en">MaintenanceEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#ManufacturerRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#ManufacturerRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+        <rdfs:comment xml:lang="en">Role of an agent (company or facility) manufacturing building components or materials.</rdfs:comment>
+        <rdfs:label xml:lang="en">ManufacturerRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Material -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Material">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/BuildingMaterials#Material"/>
+        <rdfs:comment xml:lang="en">A type of material (e.g., concrete, steel, glass) used in building components.</rdfs:comment>
+        <rdfs:label xml:lang="en">Material</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#MaterialOffer -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#MaterialOffer">
+        <rdfs:subClassOf rdf:resource="http://ld-ce.com/vocab/CEO#Offer"/>
+        <rdfs:comment xml:lang="en">An offer made by an agent to supply a material resource in a circular economy context.</rdfs:comment>
+        <rdfs:label xml:lang="en">MaterialOffer</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#MaterialRequest -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#MaterialRequest">
+        <rdfs:subClassOf rdf:resource="http://ld-ce.com/vocab/CEO#Request"/>
+        <rdfs:comment xml:lang="en">A request made by an agent for a material resource, indicating demand.</rdfs:comment>
+        <rdfs:label xml:lang="en">MaterialRequest</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#MaterialResource -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#MaterialResource">
+        <rdfs:subClassOf rdf:resource="http://ld-ce.com/vocab/CEO#Resource"/>
+        <rdfs:comment xml:lang="en">A quantity of a material (possibly from a component) available for reuse (a recoverable resource in a circular economy).</rdfs:comment>
+        <rdfs:label xml:lang="en">MaterialResource</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#MaterialTransaction -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#MaterialTransaction">
+        <rdfs:subClassOf rdf:resource="http://ld-ce.com/vocab/CEO#Transaction"/>
+        <rdfs:comment xml:lang="en">Represents an executed transaction between an offer and a request for a material resource.</rdfs:comment>
+        <rdfs:label xml:lang="en">MaterialTransaction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#MechanicalComponent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#MechanicalComponent">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A mechanical system component, such as pumps, motors, and ductwork.</rdfs:comment>
+        <rdfs:label xml:lang="en">MechanicalComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#PaintMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#PaintMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Paint or coating material used for finishing surfaces.</rdfs:comment>
+        <rdfs:label xml:lang="en">PaintMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#PlasterComponent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#PlasterComponent">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A plaster or drywall component forming interior wall finishes.</rdfs:comment>
+        <rdfs:label xml:lang="en">PlasterComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#PlumbingComponent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#PlumbingComponent">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A plumbing component, such as pipes, fixtures, and fittings.</rdfs:comment>
+        <rdfs:label xml:lang="en">PlumbingComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#ReclaimerRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#ReclaimerRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+        <rdfs:comment xml:lang="en">Role of an agent responsible for collecting, sorting, and reclaiming materials post-demolition.</rdfs:comment>
+        <rdfs:label xml:lang="en">ReclaimerRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#RenovationEvent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#RenovationEvent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Processes#Activity"/>
+        <rdfs:comment xml:lang="en">An event in which a building or component is upgraded, refurbished, or modified without complete demolition.</rdfs:comment>
+        <rdfs:label xml:lang="en">RenovationEvent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Roof -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Roof">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#assembly"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A roof component providing top enclosure for a building.</rdfs:comment>
+        <rdfs:label xml:lang="en">Roof</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#SalvageContractorRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#SalvageContractorRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+        <rdfs:comment xml:lang="en">Role of an agent responsible for salvaging materials (e.g., performing deconstruction and material recovery).</rdfs:comment>
+        <rdfs:label xml:lang="en">SalvageContractorRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Sector -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Sector">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="https://w3id.org/cfc#hasBuilding"/>
+                <owl:allValuesFrom rdf:resource="https://w3id.org/bot#Building"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:comment xml:lang="en">A city sector or district containing a group of buildings.</rdfs:comment>
+        <rdfs:label xml:lang="en">CitySector</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#StainlessSteelMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#StainlessSteelMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Stainless steel material used for countertops, handrails, and certain structural elements; prized for corrosion resistance and recyclability.</rdfs:comment>
+        <rdfs:label xml:lang="en">StainlessSteelMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Stair -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Stair">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#assembly"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A stair component composed of treads, risers, and supporting structure.</rdfs:comment>
+        <rdfs:label xml:lang="en">Stair</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#StructuralSteel -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#StructuralSteel">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Structural steel material with known load-bearing properties.</rdfs:comment>
+        <rdfs:label xml:lang="en">StructuralSteelMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#TimberMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#TimberMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Timber material used for structural framing, flooring, and finishes; includes solid lumber and engineered wood products.</rdfs:comment>
+        <rdfs:label xml:lang="en">TimberMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#UrbanPlannerRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#UrbanPlannerRole">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+        <rdfs:comment xml:lang="en">Role of an agent responsible for urban planning functions at the city or sector level.</rdfs:comment>
+        <rdfs:label xml:lang="en">UrbanPlannerRole</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#VentilationComponent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#VentilationComponent">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#HVACComponent"/>
+        <rdfs:comment xml:lang="en">A ventilation system component, such as ducts, fans, or vents.</rdfs:comment>
+        <rdfs:label xml:lang="en">VentilationComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Wall -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Wall">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#assembly"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A vertical element forming the enclosure or partition of a building.</rdfs:comment>
+        <rdfs:label xml:lang="en">Wall</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#WaterproofingMaterial -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#WaterproofingMaterial">
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#Material"/>
+        <rdfs:comment xml:lang="en">Waterproofing material, such as membrane or sealant used for moisture protection.</rdfs:comment>
+        <rdfs:label xml:lang="en">WaterproofingMaterial</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#Window -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#Window">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#assembly"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A window component, typically an assembly of frame and glazing.</rdfs:comment>
+        <rdfs:label xml:lang="en">Window</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#WindowCurtainWallComponent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#WindowCurtainWallComponent">
+        <rdfs:subClassOf rdf:resource="https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/bpo#assembly"/>
+        <rdfs:subClassOf rdf:resource="https://w3id.org/cfc#BuildingComponent"/>
+        <rdfs:comment xml:lang="en">A curtain wall component incorporating windows and framing.</rdfs:comment>
+        <rdfs:label xml:lang="en">WindowCurtainWallComponent</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/cfc#WorkOrder -->
+
+
+    <owl:Class rdf:about="https://w3id.org/cfc#WorkOrder">
+        <rdfs:subClassOf rdf:resource="http://ld-ce.com/vocab/CAMO#WorkOrder"/>
+        <rdfs:comment xml:lang="en">A scheduled task or job related to an Asset, such as inspection, maintenance, or deconstruction.</rdfs:comment>
+        <rdfs:label xml:lang="en">WorkOrder</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/Agents#Agent -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/Agents#Agent"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/Agents#StakeholderRole -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/Agents#StakeholderRole"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/BuildingMaterials#Material -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/BuildingMaterials#Material"/>
+    
+
+
+    <!-- https://w3id.org/digitalconstruction/Processes#Activity -->
+
+
+    <owl:Class rdf:about="https://w3id.org/digitalconstruction/Processes#Activity"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+

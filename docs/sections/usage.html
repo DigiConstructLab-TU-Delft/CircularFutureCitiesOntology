@@ -1,0 +1,155 @@
+
+<h2 class="list">Usage Examples <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+<p>Below are illustrative RDF/Turtle snippets showing how to instantiate CFC concepts and link them:</p>
+
+<h3 id="usage-city-sector">Defining a City and Sector</h3>
+<pre><code class="language-turtle">
+ex:MetropolisCity
+    a           cfc:City ;
+    rdfs:label  "Metropolis"@en ;
+    cfc:hasSector ex:DowntownSector, ex:UptownSector ;
+    ocg:hasGeometry ex:Metropolis_Geometry_LOD0 .
+
+ex:DowntownSector
+    a           cfc:Sector ;
+    rdfs:label  "Downtown"@en ;
+    cfc:hasBuilding ex:CentralTower, ex:OldWarehouse ;
+    ocg:hasGeometry ex:Downtown_Geometry_LOD1 .
+
+ex:UptownSector
+    a           cfc:Sector ;
+    rdfs:label  "Uptown District"@en ;
+    cfc:hasBuilding ex:UptownMall, ex:ResidentialBlock ;
+    ocg:hasGeometry ex:Uptown_Geometry_LOD1 .
+</code></pre>
+<ul>
+  <li><code>ex:MetropolisCity</code> is a <code>cfc:City</code> containing two <code>cfc:Sector</code> instances.</li>
+  <li>Each sector is a spatial object with attached geometry.</li>
+</ul>
+
+<h3 id="usage-building">Creating a Building with Components</h3>
+<pre><code class="language-turtle">
+ex:CentralTower
+    a           bot:Building ;
+    rdfs:label  "Central Tower"@en ;
+    ocg:hasGeometry ex:CentralTower_Footprint_LOD2 ;
+    cfc:hasDemolitionEvent ex:CentralTower_DemoEvent ;
+    bot:hasStorey ex:CentralTower_Storey1, ex:CentralTower_Storey2 .
+
+ex:CentralTower_Storey1
+    a           bot:Storey ;
+    rdfs:label  "Storey 1 (Ground Floor)"@en ;
+    bot:hasSpace ex:CentralTower_LobbySpace .
+
+ex:CentralTower_LobbySpace
+    a           bot:Space ;
+    rdfs:label  "Lobby Space"@en .
+
+# Components
+ex:CT1_Window_001
+    a                   cfc:Window ;
+    rdfs:label          "Window #001 on Central Tower Facade"@en ;
+    cfc:hasMaterial     cfc:GlassMaterial ;
+    omg:hasGeometry     ex:CT1_Window_001_Geom .
+
+ex:CT1_Beam_A1
+    a                   cfc:Beam ;
+    rdfs:label          "Steel Beam A1 on Storey 1"@en ;
+    cfc:hasMaterial     cfc:StructuralSteel ;
+    cfc:hasLoadCapacity "500.0"^^xsd:decimal ;
+    omg:hasGeometry     ex:CT1_Beam_A1_Geom .
+</code></pre>
+<ul>
+  <li><code>bot:Building</code> instance with storeys and components.</li>
+  <li>Each component includes material and geometry links.</li>
+</ul>
+
+<h3 id="usage-demolition">Recording a Demolition Event and Material Recovery</h3>
+<pre><code class="language-turtle">
+ex:CentralTower_DemoEvent
+    a                   cfc:DemolitionEvent ;
+    rdfs:label          "Demolition of Central Tower"@en ;
+    time:hasBeginning   "2026-01-15T08:00:00Z"^^xsd:dateTime ;
+    cfc:performedBy     ex:DemoCorpInc ;
+    cfc:generatesResource ex:SteelBeamA1_Resource, ex:GlassWindow001_Resource .
+
+ex:SteelBeamA1_Resource
+    a                   cfc:MaterialResource ;
+    rdfs:label          "Reclaimed Steel Beam A1"@en ;
+    cfc:derivedFromComponent ex:CT1_Beam_A1 ;
+    cfc:quantity        "1.0"^^xsd:decimal ;
+    cfc:unit            "unit" ;
+    cfc:offeredBy       ex:DemoCorpInc .
+
+ex:GlassWindow001_Resource
+    a                   cfc:MaterialResource ;
+    rdfs:label          "Reclaimed Glass from Window #001"@en ;
+    cfc:derivedFromComponent ex:CT1_Window_001 ;
+    cfc:quantity        "2.5"^^xsd:decimal ;
+    cfc:unit            "m²" ;
+    cfc:offeredBy       ex:DemoCorpInc .
+
+ex:DemoCorpInc
+    a                   dica:Organization ;
+    rdfs:label          "DemoCorp Inc."@en ;
+    dica:hasRole        cfc:DemolitionContractorRole, cfc:ReclaimerRole ;
+    cfc:makesOffer      ex:SteelBeamA1_Resource, ex:GlassWindow001_Resource .
+</code></pre>
+<ul>
+  <li>Demolition event generates reusable material resources.</li>
+  <li>Resources link back to components and to the offering agent.</li>
+</ul>
+
+<h3 id="usage-camo">Issuing Asset Work Orders (CAMO)</h3>
+<pre><code class="language-turtle">
+ex:BeamAssemblyA
+    a                   cfc:Asset ;
+    rdfs:label          "Beam Assembly A (Asset)"@en ;
+    camo:hasCondition   ex:AssetCondition_InUse ;
+    camo:workOrder      ex:BeamAssemblyA_MaintenanceOrder .
+
+ex:AssetCondition_InUse
+    a                   cfc:AssetCondition ;
+    rdfs:label          "InUseCondition"@en ;
+    rdfs:comment        "Asset is currently in active service."@en .
+
+ex:BeamAssemblyA_MaintenanceOrder
+    a                   cfc:WorkOrder ;
+    rdfs:label          "WorkOrder: Inspect Beam Assembly A"@en ;
+    camo:forAsset       ex:BeamAssemblyA ;
+    camo:scheduledDate  "2025-09-01T10:00:00Z"^^xsd:dateTime ;
+    cfc:ordersWork      ex:AssetManagerJohn .
+
+ex:AssetManagerJohn
+    a                   dica:Person ;
+    rdfs:label          "Asset Manager John"@en ;
+    dica:hasRole        cfc:EndUserRole ;
+    cfc:ordersWork      ex:BeamAssemblyA_MaintenanceOrder .
+</code></pre>
+
+<h3 id="usage-geometry">Geometry Attachments via OMG</h3>
+<pre><code class="language-turtle">
+ex:UptownSector_Geometry_LOD1
+    a                 omg:Geometry ;
+    omg:lodLevel      "1"^^xsd:integer ;
+    omg:asGML         "&lt;gml&gt; … Uptown District footprint … &lt;/gml&gt;"^^xsd:string .
+
+ex:UptownSector
+    a                 cfc:Sector ;
+    rdfs:label        "Uptown District"@en ;
+    ocg:hasGeometry   ex:UptownSector_Geometry_LOD1 .
+
+ex:CentralTower_Footprint_LOD2
+    a                 omg:GeometryState ;
+    omg:lodLevel      "2"^^xsd:integer ;
+    omg:asIFC         "# IFC file data for Central Tower LOD2"^^xsd:string ;
+    prov:generatedAtTime "2024-06-01T00:00:00Z"^^xsd:dateTime .
+
+ex:CentralTower
+    a                 bot:Building ;
+    rdfs:label        "Central Tower"@en ;
+    ocg:hasGeometry   ex:CentralTower_Footprint_LOD2 .
+</code></pre>
+<ul>
+  <li>Geometry attached using <code>omg:hasGeometry</code> and <code>omg:asGML</code>/<code>asIFC</code>.</li>
+</ul>

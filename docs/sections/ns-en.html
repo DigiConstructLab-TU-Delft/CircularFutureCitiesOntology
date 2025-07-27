@@ -1,0 +1,97 @@
+<div id="namespacedeclarations">
+<h3 id="ns" class="list">Namespace declarations</h3>
+<div id="ns" align="center">
+<table>
+<caption> <a href="#ns"> Table 1</a>: Namespaces used in the document </caption>
+<tbody>
+<tr><td><b>[Ontology NS Prefix]</b></td><td>&lt;https://w3id.org/cfc/ontology&gt;</td></tr>
+<tr><td><b>bot</b></td><td>&lt;https://w3id.org/bot#&gt;</td></tr>
+<tr><td><b>bpo</b></td><td>&lt;https://w3id.org/bpo#&gt;</td></tr>
+<tr><td><b>camo</b></td><td>&lt;http://ld-ce.com/vocab/CAMO#&gt;</td></tr>
+<tr><td><b>ceo</b></td><td>&lt;http://ld-ce.com/vocab/CEO#&gt;</td></tr>
+<tr><td><b>cfc</b></td><td>&lt;https://w3id.org/cfc#&gt;</td></tr>
+<tr><td><b>dica</b></td><td>&lt;https://w3id.org/digitalconstruction/Agents#&gt;</td></tr>
+<tr><td><b>dicbm</b></td><td>&lt;https://w3id.org/digitalconstruction/BuildingMaterials#&gt;</td></tr>
+<tr><td><b>dicl</b></td><td>&lt;https://w3id.org/digitalconstruction/Lifecycle#&gt;</td></tr>
+<tr><td><b>dicp</b></td><td>&lt;https://w3id.org/digitalconstruction/Processes#&gt;</td></tr>
+<tr><td><b>ocg</b></td><td>&lt;https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#&gt;</td></tr>
+<tr><td><b>omg</b></td><td>&lt;http://w3id.org/omg#&gt;</td></tr>
+<tr><td><b>opm</b></td><td>&lt;https://w3c-lbd-cg.github.io/opm#&gt;</td></tr>
+<tr><td><b>owl</b></td><td>&lt;http://www.w3.org/2002/07/owl#&gt;</td></tr>
+<tr><td><b>prov</b></td><td>&lt;http://www.w3.org/ns/prov#&gt;</td></tr>
+<tr><td><b>rdf</b></td><td>&lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt;</td></tr>
+<tr><td><b>rdfs</b></td><td>&lt;http://www.w3.org/2000/01/rdf-schema#&gt;</td></tr>
+<tr><td><b>time</b></td><td>&lt;http://www.w3.org/2006/time#&gt;</td></tr>
+<tr><td><b>xml</b></td><td>&lt;http://www.w3.org/XML/1998/namespace&gt;</td></tr>
+<tr><td><b>xsd</b></td><td>&lt;http://www.w3.org/2001/XMLSchema#&gt;</td></tr>
+</tbody>
+</table>
+
+<table style="table-layout: fixed; width: 100%;">
+  <caption>Table 2: Imported Ontologies and their purposes</caption>
+   <thead>
+    <tr>
+      <th style="width: 11.11%; word-wrap: break-word; white-space: normal;">Ontology</th>
+      <th style="width: 22.22%; word-wrap: break-word; white-space: normal;">URL</th>
+      <th style="width: 66.66%; word-wrap: break-word; white-space: normal;">Description</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr>
+      <td><strong>OntoCityGML</strong></td>
+      <td style="word-break: break-word; white-space: normal;"><code>https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl</code></td>
+      <td>Provides classes such as <code>ocg:City</code>, <code>ocg:CityObject</code>, <code>ocg:Building</code>, <code>ocg:Site</code>, <code>ocg:BuildingPart</code>, and geometry properties like <code>ocg:containsCityObject</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>BOT</strong> (Building Topology Ontology)</td>
+      <td style="word-break: break-word; white-space: normal;"><code>https://w3id.org/bot</code></td>
+      <td>Offers classes like <code>bot:Building</code>, <code>bot:Site</code>, <code>bot:Storey</code>, <code>bot:Space</code>, <code>bot:Element</code>, and properties such as <code>bot:containsZone</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>BPO</strong> (Building Product Ontology)</td>
+      <td style="word-break: break-word; white-space: normal;"><code>https://w3id.org/bpo</code></td>
+      <td>Defines <code>bpo:assembly</code> and other product‐level classes for representing assemblies.</td>
+    </tr>
+    <tr>
+      <td><strong>DIC Agents</strong></td>
+      <td style="word-break: break-word; white-space: normal;"><code>https://w3id.org/digitalconstruction/Agents</code></td>
+      <td>Defines classes <code>dica:Agent</code>, <code>dica:Person</code>, <code>dica:Organization</code>, and roles under <code>dica:StakeholderRole</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>DIC Materials</strong></td>
+      <td style="word-break: break-word; white-space: normal;"><code>https://w3id.org/digitalconstruction/Materials</code></td>
+      <td>Defines <code>dicbm:Material</code> and related classes for describing building materials and their properties.</td>
+    </tr>
+    <tr>
+      <td><strong>DIC Lifecycle</strong></td>
+      <td style="word-break: break-word; white-space: normal;"><code>https://w3id.org/digitalconstruction/Lifecycle</code></td>
+      <td>Defines <code>dicl:LifecycleStage</code> and associated process/activity classes.</td>
+    </tr>
+    <tr>
+      <td><strong>OMG</strong> (Ontology for Managing Geometry)</td>
+      <td style="word-break: break-word; white-space: normal;"><code>http://w3id.org/omg</code></td>
+      <td>Defines <code>omg:Geometry</code> and <code>omg:GeometryState</code>, with properties like <code>omg:hasGeometry</code>, <code>omg:lodLevel</code>, and geometry serialization (e.g., <code>omg:asGML</code>, <code>omg:asIFC</code>).</td>
+    </tr>
+    <tr>
+      <td><strong>OPM</strong> (Ontology for Property Management)</td>
+      <td style="word-break: break-word; white-space: normal;"><code>https://w3c-lbd-cg.github.io/opm</code></td>
+      <td>Enables tracking how property values evolve over time, linking to provenance and metadata.</td>
+    </tr>
+    <tr>
+      <td><strong>CEO</strong> (Circular Exchange Ontology)</td>
+      <td style="word-break: break-word; white-space: normal;"><code>http://ld-ce.com/vocab/CEO</code></td>
+      <td>Defines <code>ceo:Offer</code>, <code>ceo:Request</code>, <code>ceo:Transaction</code>, and properties like <code>ceo:offeredBy</code>, <code>ceo:requestedBy</code>, <code>ceo:involvesAgent</code>.</td>
+    </tr>
+    <tr>
+      <td><strong>CAMO</strong> (Circular Asset Management Ontology)</td>
+      <td style="word-break: break-word; white-space: normal;"><code>http://ld-ce.com/vocab/CAMO</code></td>
+      <td>Provides classes <code>camo:Asset</code>, <code>camo:AssetCondition</code>, <code>camo:WorkOrder</code>, and properties such as <code>camo:responsibleForAsset</code>, <code>camo:orders</code>.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+</div>

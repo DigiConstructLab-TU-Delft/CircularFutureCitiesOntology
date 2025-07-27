@@ -1,0 +1,59 @@
+
+abstract=CFC Ontology—a city‐scale material passport ontology designed to support circular economy principles in the built environment. Material passports have been proposed to collect, store, and share material information to promote circularity in the construction sector. However, the current recommendations for material passports focus on material information at a building scale with little attention to its implications on a city scale. To address this limitation, this ontology t could be used to collect, store, share, and retrieve data at multiple scales of abstraction. It describes the requirements for a material passport ontology and provides recommendations for integrating existing ontologies.
+ontologyTitle=Circular Future Cities
+ontologyPrefix=[Ontology NS Prefix]
+ontologyNamespaceURI=https://w3id.org/cfc/ontology#
+ontologyName=CFC Ontology - Complete Circular Future Cities Material Passport
+thisVersionURI=null
+latestVersionURI=https://w3id.org/cfc/ontology#
+previousVersionURI=
+dateCreated=01/07/2023
+dateModified=
+ontologyRevisionNumber=1.2
+licenseURI=null
+licenseName=null
+licenseIconURL=null
+citeAs= Revision: 1.2.
+DOI=
+status=Ontology Specification Draft
+logo=
+description=An OWL ontology integrating city-scale material passports, building topology, material types, lifecycle agents, and circular economy concepts (CEO & CAMO), explicitly aligned with OntoCityGML.
+introduction=The CFC Ontology (Circular Future Cities Material Passport Ontology) is an OWL ontology that integrates:
+
+City‐scale topology (using OntoCityGML and BOT)
+Building, component, and material definitions (aligning with DIC Building Materials, BPO)
+Lifecycle events (construction, renovation, maintenance, design, demolition)
+Stakeholder and agent roles (aligning with DIC Agents)
+Circular economy exchange (using CEO: Circular Exchange Ontology)
+Asset management (using CAMO: Circular Asset Management Ontology)
+Geometry support (using OMG: Ontology for Managing Geometry)
+Property evolution and provenance (using OPM, PROV)
+Its purpose is to model material‐passport data at multiple levels—from city sectors down to individual components—so that queries can traverse from topological zones (city/sector/building) through to material resources and stakeholder actions. By importing and aligning existing ontologies, CFC remains modular, extensible, and interoperable with other Linked‐Data ecosystems.
+
+Published Context: This ontology was published as part of the Future Cities Laboratory’s Circular Future Cities project, under the Singapore-ETH Centre collaboration.
+backwardsCompatibleWith=
+publisher=
+publisherURI=
+publisherInstitution=
+publisherInstitutionURI=
+authors=Ranjith Soman
+authorsURI=https://www.tudelft.nl/en/staff/r.soman/
+authorsInstitution=elft University of Technology
+authorsInstitutionURI=
+contributors=
+contributorsURI=
+contributorsInstitution=
+contributorsInstitutionURI=
+importedOntologyNames=bot#;bpo;omg
+importedOntologyURIs=https://w3id.org/bot#;https://w3id.org/bpo;https://w3id.org/omg
+extendedOntologyNames=
+extendedOntologyURIs=
+RDFXMLSerialization=ontology.owl
+TurtleSerialization=ontology.ttl
+NTSerialization=ontology.nt
+JSONLDSerialization=ontology.jsonld
+images=
+source=
+seeAlso=
+fundingGrants=
+funders=

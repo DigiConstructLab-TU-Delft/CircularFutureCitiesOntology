@@ -1,0 +1,658 @@
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2002/07/owl#imports> <http://ld-ce.com/vocab/CAMO> .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2002/07/owl#imports> <http://ld-ce.com/vocab/CEO> .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2002/07/owl#imports> <http://w3id.org/omg> .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2002/07/owl#imports> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl> .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2002/07/owl#imports> <https://w3c-lbd-cg.github.io/opm> .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/bot> .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/bpo> .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/digitalconstruction/Agents> .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/digitalconstruction/Lifecycle> .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2002/07/owl#imports> <https://w3id.org/digitalconstruction/Materials> .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2000/01/rdf-schema#comment> "An OWL ontology integrating city-scale material passports, building topology, material types, lifecycle agents, and circular economy concepts (CEO & CAMO), explicitly aligned with OntoCityGML."@en .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2000/01/rdf-schema#label> "CFC Ontology - Complete Circular Future Cities Material Passport"@en .
+<https://w3id.org/cfc#CompleteOntology> <http://www.w3.org/2002/07/owl#versionInfo> "1.2" .
+# 
+# 
+# #################################################################
+# #
+# #    Object Properties
+# #
+# #################################################################
+# 
+# 
+# http://ld-ce.com/vocab/CAMO#orders
+<http://ld-ce.com/vocab/CAMO#orders> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://ld-ce.com/vocab/CAMO#responsibleForAsset
+<http://ld-ce.com/vocab/CAMO#responsibleForAsset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://ld-ce.com/vocab/CEO#involvesAgent
+<http://ld-ce.com/vocab/CEO#involvesAgent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://ld-ce.com/vocab/CEO#offeredBy
+<http://ld-ce.com/vocab/CEO#offeredBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://ld-ce.com/vocab/CEO#requestedBy
+<http://ld-ce.com/vocab/CEO#requestedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#generated
+<http://www.w3.org/ns/prov#generated> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# http://www.w3.org/ns/prov#wasAssociatedWith
+<http://www.w3.org/ns/prov#wasAssociatedWith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#containsCityObject
+<https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#containsCityObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+# 
+# https://w3id.org/cfc#assignedToAsset
+<https://w3id.org/cfc#assignedToAsset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#assignedToAsset> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ld-ce.com/vocab/CAMO#responsibleForAsset> .
+<https://w3id.org/cfc#assignedToAsset> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/digitalconstruction/Agents#Agent> .
+<https://w3id.org/digitalconstruction/Agents#Agent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#assignedToAsset> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cfc#Asset> .
+<https://w3id.org/cfc#assignedToAsset> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an Agent (e.g., inspector, maintenance crew) is responsible for a specific Asset."@en .
+<https://w3id.org/cfc#assignedToAsset> <http://www.w3.org/2000/01/rdf-schema#label> "assignedToAsset"@en .
+# 
+# https://w3id.org/cfc#derivedFromComponent
+<https://w3id.org/cfc#derivedFromComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#derivedFromComponent> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasDerivedFrom> .
+<https://w3id.org/cfc#derivedFromComponent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cfc#MaterialResource> .
+<https://w3id.org/cfc#derivedFromComponent> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#derivedFromComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "Links a recovered MaterialResource to the original building component it came from."@en .
+<https://w3id.org/cfc#derivedFromComponent> <http://www.w3.org/2000/01/rdf-schema#label> "derivedFromComponent"@en .
+# 
+# https://w3id.org/cfc#generatesResource
+<https://w3id.org/cfc#generatesResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#generatesResource> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#generated> .
+<https://w3id.org/cfc#generatesResource> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cfc#DemolitionEvent> .
+<https://w3id.org/cfc#generatesResource> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cfc#MaterialResource> .
+<https://w3id.org/cfc#generatesResource> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that a demolition event generates a certain material resource for reuse."@en .
+<https://w3id.org/cfc#generatesResource> <http://www.w3.org/2000/01/rdf-schema#label> "generatesResource"@en .
+# 
+# https://w3id.org/cfc#hasBuilding
+<https://w3id.org/cfc#hasBuilding> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#hasBuilding> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#containsCityObject> .
+<https://w3id.org/cfc#hasBuilding> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cfc#Sector> .
+<https://w3id.org/cfc#hasBuilding> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/bot#Building> .
+<https://w3id.org/cfc#hasBuilding> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a Sector to a Building located within it."@en .
+<https://w3id.org/cfc#hasBuilding> <http://www.w3.org/2000/01/rdf-schema#label> "hasBuilding"@en .
+# 
+# https://w3id.org/cfc#hasDemolitionEvent
+<https://w3id.org/cfc#hasDemolitionEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#hasDemolitionEvent> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/bot#Building> .
+<https://w3id.org/cfc#hasDemolitionEvent> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cfc#DemolitionEvent> .
+<https://w3id.org/cfc#hasDemolitionEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates a Building with its planned or actual Demolition event."@en .
+<https://w3id.org/cfc#hasDemolitionEvent> <http://www.w3.org/2000/01/rdf-schema#label> "hasDemolitionEvent"@en .
+# 
+# https://w3id.org/cfc#hasMaterial
+<https://w3id.org/cfc#hasMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#hasMaterial> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#hasMaterial> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#hasMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates a material that a building component is made of."@en .
+<https://w3id.org/cfc#hasMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "hasMaterial"@en .
+# 
+# https://w3id.org/cfc#hasSector
+<https://w3id.org/cfc#hasSector> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#hasSector> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#containsCityObject> .
+<https://w3id.org/cfc#hasSector> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cfc#City> .
+<https://w3id.org/cfc#hasSector> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cfc#Sector> .
+<https://w3id.org/cfc#hasSector> <http://www.w3.org/2000/01/rdf-schema#comment> "Relates a City to a Sector (district within the city)."@en .
+<https://w3id.org/cfc#hasSector> <http://www.w3.org/2000/01/rdf-schema#label> "hasSector"@en .
+# 
+# https://w3id.org/cfc#makesOffer
+<https://w3id.org/cfc#makesOffer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#makesOffer> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ld-ce.com/vocab/CEO#offeredBy> .
+<https://w3id.org/cfc#makesOffer> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/digitalconstruction/Agents#Agent> .
+<https://w3id.org/cfc#makesOffer> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cfc#MaterialOffer> .
+<https://w3id.org/cfc#makesOffer> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an Agent to a MaterialOffer they create."@en .
+<https://w3id.org/cfc#makesOffer> <http://www.w3.org/2000/01/rdf-schema#label> "makesOffer"@en .
+# 
+# https://w3id.org/cfc#makesRequest
+<https://w3id.org/cfc#makesRequest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#makesRequest> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ld-ce.com/vocab/CEO#requestedBy> .
+<https://w3id.org/cfc#makesRequest> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/digitalconstruction/Agents#Agent> .
+<https://w3id.org/cfc#makesRequest> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cfc#MaterialRequest> .
+<https://w3id.org/cfc#makesRequest> <http://www.w3.org/2000/01/rdf-schema#comment> "Links an Agent to a MaterialRequest they create."@en .
+<https://w3id.org/cfc#makesRequest> <http://www.w3.org/2000/01/rdf-schema#label> "makesRequest"@en .
+# 
+# https://w3id.org/cfc#offeredBy
+<https://w3id.org/cfc#offeredBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#offeredBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cfc#MaterialResource> .
+<https://w3id.org/cfc#offeredBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/digitalconstruction/Agents#Agent> .
+<https://w3id.org/cfc#offeredBy> <http://www.w3.org/2000/01/rdf-schema#comment> "The agent offering this material resource for reuse."@en .
+<https://w3id.org/cfc#offeredBy> <http://www.w3.org/2000/01/rdf-schema#label> "offeredBy"@en .
+# 
+# https://w3id.org/cfc#ordersWork
+<https://w3id.org/cfc#ordersWork> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#ordersWork> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ld-ce.com/vocab/CAMO#orders> .
+<https://w3id.org/cfc#ordersWork> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/digitalconstruction/Agents#Agent> .
+<https://w3id.org/cfc#ordersWork> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cfc#WorkOrder> .
+<https://w3id.org/cfc#ordersWork> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates that an Agent issues a WorkOrder for an Asset (e.g., scheduling maintenance, demolition, or reclamation)."@en .
+<https://w3id.org/cfc#ordersWork> <http://www.w3.org/2000/01/rdf-schema#label> "ordersWork"@en .
+# 
+# https://w3id.org/cfc#participatesInTransaction
+<https://w3id.org/cfc#participatesInTransaction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#participatesInTransaction> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://ld-ce.com/vocab/CEO#involvesAgent> .
+<https://w3id.org/cfc#participatesInTransaction> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/digitalconstruction/Agents#Agent> .
+<https://w3id.org/cfc#participatesInTransaction> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/cfc#MaterialTransaction> .
+<https://w3id.org/cfc#participatesInTransaction> <http://www.w3.org/2000/01/rdf-schema#comment> "Associates an Agent with a completed MaterialTransaction."@en .
+<https://w3id.org/cfc#participatesInTransaction> <http://www.w3.org/2000/01/rdf-schema#label> "participatesInTransaction"@en .
+# 
+# https://w3id.org/cfc#performedBy
+<https://w3id.org/cfc#performedBy> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#ObjectProperty> .
+<https://w3id.org/cfc#performedBy> <http://www.w3.org/2000/01/rdf-schema#subPropertyOf> <http://www.w3.org/ns/prov#wasAssociatedWith> .
+<https://w3id.org/cfc#performedBy> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/digitalconstruction/Processes#Activity> .
+<https://w3id.org/digitalconstruction/Processes#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#performedBy> <http://www.w3.org/2000/01/rdf-schema#range> <https://w3id.org/digitalconstruction/Agents#Agent> .
+<https://w3id.org/cfc#performedBy> <http://www.w3.org/2000/01/rdf-schema#comment> "Indicates the Agent (person or organization) that performs an activity (e.g., demolition, construction, renovation, maintenance, design)."@en .
+<https://w3id.org/cfc#performedBy> <http://www.w3.org/2000/01/rdf-schema#label> "performedBy"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Data properties
+# #
+# #################################################################
+# 
+# 
+# https://w3id.org/cfc#hasLoadCapacity
+<https://w3id.org/cfc#hasLoadCapacity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/cfc#hasLoadCapacity> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#hasLoadCapacity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/cfc#hasLoadCapacity> <http://www.w3.org/2000/01/rdf-schema#comment> "Specifies the load-bearing capacity (e.g., in kN or MPa) of a structural component or material."@en .
+<https://w3id.org/cfc#hasLoadCapacity> <http://www.w3.org/2000/01/rdf-schema#label> "hasLoadCapacity"@en .
+# 
+# https://w3id.org/cfc#quantity
+<https://w3id.org/cfc#quantity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/cfc#quantity> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cfc#MaterialResource> .
+<https://w3id.org/cfc#quantity> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#decimal> .
+<https://w3id.org/cfc#quantity> <http://www.w3.org/2000/01/rdf-schema#comment> "Quantity of material available (in a specified unit, e.g., kg or count)."@en .
+<https://w3id.org/cfc#quantity> <http://www.w3.org/2000/01/rdf-schema#label> "quantity"@en .
+# 
+# https://w3id.org/cfc#unit
+<https://w3id.org/cfc#unit> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#DatatypeProperty> .
+<https://w3id.org/cfc#unit> <http://www.w3.org/2000/01/rdf-schema#domain> <https://w3id.org/cfc#MaterialResource> .
+<https://w3id.org/cfc#unit> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.w3.org/2001/XMLSchema#string> .
+<https://w3id.org/cfc#unit> <http://www.w3.org/2000/01/rdf-schema#comment> "Unit of the quantity (e.g., 'kg', 'm^2')."@en .
+<https://w3id.org/cfc#unit> <http://www.w3.org/2000/01/rdf-schema#label> "unit"@en .
+# 
+# 
+# 
+# #################################################################
+# #
+# #    Classes
+# #
+# #################################################################
+# 
+# 
+# http://ld-ce.com/vocab/CAMO#Asset
+<http://ld-ce.com/vocab/CAMO#Asset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://ld-ce.com/vocab/CAMO#AssetCondition
+<http://ld-ce.com/vocab/CAMO#AssetCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://ld-ce.com/vocab/CAMO#WorkOrder
+<http://ld-ce.com/vocab/CAMO#WorkOrder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://ld-ce.com/vocab/CEO#Offer
+<http://ld-ce.com/vocab/CEO#Offer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://ld-ce.com/vocab/CEO#Request
+<http://ld-ce.com/vocab/CEO#Request> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://ld-ce.com/vocab/CEO#Resource
+<http://ld-ce.com/vocab/CEO#Resource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://ld-ce.com/vocab/CEO#Transaction
+<http://ld-ce.com/vocab/CEO#Transaction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# http://www.w3.org/ns/prov#Activity
+<http://www.w3.org/ns/prov#Activity> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Building
+<https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Building> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#BuildingPart
+<https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#BuildingPart> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#City
+<https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#City> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject
+<https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Site
+<https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Site> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/bot#Building
+<https://w3id.org/bot#Building> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Building> .
+<https://w3id.org/bot#Building> <http://www.w3.org/2000/01/rdf-schema#comment> "BOT Building aligned as a subclass of OntoCityGML Building."@en .
+# 
+# https://w3id.org/bot#Site
+<https://w3id.org/bot#Site> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#Site> .
+<https://w3id.org/bot#Site> <http://www.w3.org/2000/01/rdf-schema#comment> "BOT Site aligned as a subclass of OntoCityGML Site."@en .
+# 
+# https://w3id.org/bot#Space
+<https://w3id.org/bot#Space> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#BuildingPart> .
+<https://w3id.org/bot#Space> <http://www.w3.org/2000/01/rdf-schema#comment> "BOT Space aligned as a subclass of OntoCityGML BuildingPart."@en .
+# 
+# https://w3id.org/bot#Storey
+<https://w3id.org/bot#Storey> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#BuildingPart> .
+<https://w3id.org/bot#Storey> <http://www.w3.org/2000/01/rdf-schema#comment> "BOT Storey aligned as a subclass of OntoCityGML BuildingPart."@en .
+# 
+# https://w3id.org/bpo#assembly
+<https://w3id.org/bpo#assembly> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+# 
+# https://w3id.org/cfc#AluminumMaterial
+<https://w3id.org/cfc#AluminumMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#AluminumMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#AluminumMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Aluminum material commonly used for window frames, façade cladding, and structural elements; valued for its light weight and recyclability."@en .
+<https://w3id.org/cfc#AluminumMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "AluminumMaterial"@en .
+# 
+# https://w3id.org/cfc#ArchitectRole
+<https://w3id.org/cfc#ArchitectRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#ArchitectRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Agents#StakeholderRole> .
+<https://w3id.org/digitalconstruction/Agents#StakeholderRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#ArchitectRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Role of an agent responsible for architectural design of buildings."@en .
+<https://w3id.org/cfc#ArchitectRole> <http://www.w3.org/2000/01/rdf-schema#label> "ArchitectRole"@en .
+# 
+# https://w3id.org/cfc#Asset
+<https://w3id.org/cfc#Asset> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Asset> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld-ce.com/vocab/CAMO#Asset> .
+<https://w3id.org/cfc#Asset> <http://www.w3.org/2000/01/rdf-schema#comment> "A tangible building asset or component tracked over its lifecycle."@en .
+<https://w3id.org/cfc#Asset> <http://www.w3.org/2000/01/rdf-schema#label> "Asset"@en .
+# 
+# https://w3id.org/cfc#AssetCondition
+<https://w3id.org/cfc#AssetCondition> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#AssetCondition> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld-ce.com/vocab/CAMO#AssetCondition> .
+<https://w3id.org/cfc#AssetCondition> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents the condition state of an Asset (e.g., new, in-use, worn, end-of-life)."@en .
+<https://w3id.org/cfc#AssetCondition> <http://www.w3.org/2000/01/rdf-schema#label> "AssetCondition"@en .
+# 
+# https://w3id.org/cfc#Beam
+<https://w3id.org/cfc#Beam> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Beam> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#Beam> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#Beam> <http://www.w3.org/2000/01/rdf-schema#comment> "A horizontal structural member that supports loads."@en .
+<https://w3id.org/cfc#Beam> <http://www.w3.org/2000/01/rdf-schema#label> "Beam"@en .
+# 
+# https://w3id.org/cfc#BrassMaterial
+<https://w3id.org/cfc#BrassMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#BrassMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#BrassMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Brass material used in high-value fittings and fixtures (such as door hardware, taps, and decorative elements); fully recyclable."@en .
+<https://w3id.org/cfc#BrassMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "BrassMaterial"@en .
+# 
+# https://w3id.org/cfc#BrickMaterial
+<https://w3id.org/cfc#BrickMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#BrickMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#BrickMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Brick material including clay bricks and concrete masonry units, commonly used for walls, façades, and paving."@en .
+<https://w3id.org/cfc#BrickMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "BrickMaterial"@en .
+# 
+# https://w3id.org/cfc#BuildingComponent
+<https://w3id.org/cfc#BuildingComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#BuildingComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#BuildingComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/bot#Element> .
+<https://w3id.org/cfc#BuildingComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A physical building element or component that is part of a building (e.g., wall, window, beam)."@en .
+<https://w3id.org/cfc#BuildingComponent> <http://www.w3.org/2000/01/rdf-schema#label> "BuildingComponent"@en .
+# 
+# https://w3id.org/cfc#City
+<https://w3id.org/cfc#City> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#City> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#City> .
+<https://w3id.org/cfc#City> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid1 .
+_:genid1 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/cfc#Sector> .
+_:genid1 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/cfc#hasSector> .
+_:genid1 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/cfc#City> <http://www.w3.org/2000/01/rdf-schema#comment> "A city or municipality containing districts and buildings."@en .
+<https://w3id.org/cfc#City> <http://www.w3.org/2000/01/rdf-schema#label> "City"@en .
+# 
+# https://w3id.org/cfc#CladdingComponent
+<https://w3id.org/cfc#CladdingComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#CladdingComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#CladdingComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#CladdingComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "An external cladding component, such as siding, panels, or curtain walls."@en .
+<https://w3id.org/cfc#CladdingComponent> <http://www.w3.org/2000/01/rdf-schema#label> "CladdingComponent"@en .
+# 
+# https://w3id.org/cfc#Column
+<https://w3id.org/cfc#Column> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Column> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#Column> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#Column> <http://www.w3.org/2000/01/rdf-schema#comment> "A vertical structural member that supports loads."@en .
+<https://w3id.org/cfc#Column> <http://www.w3.org/2000/01/rdf-schema#label> "Column"@en .
+# 
+# https://w3id.org/cfc#ConcreteMaterial
+<https://w3id.org/cfc#ConcreteMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#ConcreteMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#ConcreteMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Concrete material used in foundations, slabs, walls, and precast elements; typically a mixture of cement, aggregates, and water."@en .
+<https://w3id.org/cfc#ConcreteMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "ConcreteMaterial"@en .
+# 
+# https://w3id.org/cfc#ConstructionEvent
+<https://w3id.org/cfc#ConstructionEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#ConstructionEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://w3id.org/cfc#ConstructionEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Processes#Activity> .
+<https://w3id.org/cfc#ConstructionEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event of constructing or installing a building or component."@en .
+<https://w3id.org/cfc#ConstructionEvent> <http://www.w3.org/2000/01/rdf-schema#label> "ConstructionEvent"@en .
+# 
+# https://w3id.org/cfc#ConsultantRole
+<https://w3id.org/cfc#ConsultantRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#ConsultantRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Agents#StakeholderRole> .
+<https://w3id.org/cfc#ConsultantRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Role of an agent providing specialized consultancy (e.g., sustainability, energy modeling, materials advice)."@en .
+<https://w3id.org/cfc#ConsultantRole> <http://www.w3.org/2000/01/rdf-schema#label> "ConsultantRole"@en .
+# 
+# https://w3id.org/cfc#ContractorRole
+<https://w3id.org/cfc#ContractorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#ContractorRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Agents#StakeholderRole> .
+<https://w3id.org/cfc#ContractorRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Role of an agent responsible for construction management and execution."@en .
+<https://w3id.org/cfc#ContractorRole> <http://www.w3.org/2000/01/rdf-schema#label> "ContractorRole"@en .
+# 
+# https://w3id.org/cfc#CopperMaterial
+<https://w3id.org/cfc#CopperMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#CopperMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#CopperMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Copper material used in electrical wiring, plumbing, and other high-value applications, highly recyclable."@en .
+<https://w3id.org/cfc#CopperMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "CopperMaterial"@en .
+# 
+# https://w3id.org/cfc#DeconstructorRole
+<https://w3id.org/cfc#DeconstructorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#DeconstructorRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Agents#StakeholderRole> .
+<https://w3id.org/cfc#DeconstructorRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Role of an agent skilled in systematic deconstruction to recover materials for reuse."@en .
+<https://w3id.org/cfc#DeconstructorRole> <http://www.w3.org/2000/01/rdf-schema#label> "DeconstructorRole"@en .
+# 
+# https://w3id.org/cfc#DemolitionContractorRole
+<https://w3id.org/cfc#DemolitionContractorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#DemolitionContractorRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Agents#StakeholderRole> .
+<https://w3id.org/cfc#DemolitionContractorRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Role of an agent responsible for demolition activities (typically less selective than deconstruction)."@en .
+<https://w3id.org/cfc#DemolitionContractorRole> <http://www.w3.org/2000/01/rdf-schema#label> "DemolitionContractorRole"@en .
+# 
+# https://w3id.org/cfc#DemolitionEvent
+<https://w3id.org/cfc#DemolitionEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#DemolitionEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://w3id.org/cfc#DemolitionEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Processes#Activity> .
+<https://w3id.org/cfc#DemolitionEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event or process where a building (or part) is demolished, yielding material resources."@en .
+<https://w3id.org/cfc#DemolitionEvent> <http://www.w3.org/2000/01/rdf-schema#label> "DemolitionEvent"@en .
+# 
+# https://w3id.org/cfc#DesignEvent
+<https://w3id.org/cfc#DesignEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#DesignEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://w3id.org/cfc#DesignEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Processes#Activity> .
+<https://w3id.org/cfc#DesignEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event representing the design or planning phase for a building, component, or system."@en .
+<https://w3id.org/cfc#DesignEvent> <http://www.w3.org/2000/01/rdf-schema#label> "DesignEvent"@en .
+# 
+# https://w3id.org/cfc#Door
+<https://w3id.org/cfc#Door> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Door> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#Door> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/bpo#assembly> .
+<https://w3id.org/cfc#Door> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#Door> <http://www.w3.org/2000/01/rdf-schema#comment> "A door component, including frame and leaf, used for building access."@en .
+<https://w3id.org/cfc#Door> <http://www.w3.org/2000/01/rdf-schema#label> "Door"@en .
+# 
+# https://w3id.org/cfc#ElectricalComponent
+<https://w3id.org/cfc#ElectricalComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#ElectricalComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#ElectricalComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#ElectricalComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "An electrical system component, such as wiring, outlets, panels, and fixtures."@en .
+<https://w3id.org/cfc#ElectricalComponent> <http://www.w3.org/2000/01/rdf-schema#label> "ElectricalComponent"@en .
+# 
+# https://w3id.org/cfc#EndUserRole
+<https://w3id.org/cfc#EndUserRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#EndUserRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Agents#StakeholderRole> .
+<https://w3id.org/cfc#EndUserRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Role of an agent that occupies or operates a building (e.g., tenant, owner-occupant, facility manager)."@en .
+<https://w3id.org/cfc#EndUserRole> <http://www.w3.org/2000/01/rdf-schema#label> "EndUserRole"@en .
+# 
+# https://w3id.org/cfc#EngineerRole
+<https://w3id.org/cfc#EngineerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#EngineerRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Agents#StakeholderRole> .
+<https://w3id.org/cfc#EngineerRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Role of an agent responsible for engineering analysis, structural calculations, or system design."@en .
+<https://w3id.org/cfc#EngineerRole> <http://www.w3.org/2000/01/rdf-schema#label> "EngineerRole"@en .
+# 
+# https://w3id.org/cfc#Floor
+<https://w3id.org/cfc#Floor> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Floor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#Floor> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#Floor> <http://www.w3.org/2000/01/rdf-schema#comment> "A floor component providing horizontal surface within a building."@en .
+<https://w3id.org/cfc#Floor> <http://www.w3.org/2000/01/rdf-schema#label> "Floor"@en .
+# 
+# https://w3id.org/cfc#FlooringMaterial
+<https://w3id.org/cfc#FlooringMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#FlooringMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#FlooringMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Flooring material, such as wood, tile, vinyl, or carpet."@en .
+<https://w3id.org/cfc#FlooringMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "FlooringMaterial"@en .
+# 
+# https://w3id.org/cfc#Foundation
+<https://w3id.org/cfc#Foundation> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Foundation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#Foundation> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#Foundation> <http://www.w3.org/2000/01/rdf-schema#comment> "A foundation component transmitting building loads to the ground."@en .
+<https://w3id.org/cfc#Foundation> <http://www.w3.org/2000/01/rdf-schema#label> "Foundation"@en .
+# 
+# https://w3id.org/cfc#GlassMaterial
+<https://w3id.org/cfc#GlassMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#GlassMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#GlassMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Glass material used in windows, curtain walls, and other glazed assemblies."@en .
+<https://w3id.org/cfc#GlassMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "GlassMaterial"@en .
+# 
+# https://w3id.org/cfc#GypsumBoardMaterial
+<https://w3id.org/cfc#GypsumBoardMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#GypsumBoardMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#GypsumBoardMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Gypsum board (drywall) material used for interior partition walls and ceilings."@en .
+<https://w3id.org/cfc#GypsumBoardMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "GypsumBoardMaterial"@en .
+# 
+# https://w3id.org/cfc#HVACComponent
+<https://w3id.org/cfc#HVACComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#HVACComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#HVACComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#HVACComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A heating, ventilation, and air conditioning component."@en .
+<https://w3id.org/cfc#HVACComponent> <http://www.w3.org/2000/01/rdf-schema#label> "HVACComponent"@en .
+# 
+# https://w3id.org/cfc#HeatingComponent
+<https://w3id.org/cfc#HeatingComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#HeatingComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#HeatingComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#HVACComponent> .
+<https://w3id.org/cfc#HeatingComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A heating system component, such as boilers, radiators, or heaters."@en .
+<https://w3id.org/cfc#HeatingComponent> <http://www.w3.org/2000/01/rdf-schema#label> "HeatingComponent"@en .
+# 
+# https://w3id.org/cfc#InsulationMaterial
+<https://w3id.org/cfc#InsulationMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#InsulationMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#InsulationMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Thermal or acoustic insulation material, such as fiberglass, foam, or rock wool."@en .
+<https://w3id.org/cfc#InsulationMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "InsulationMaterial"@en .
+# 
+# https://w3id.org/cfc#KitchenComponent
+<https://w3id.org/cfc#KitchenComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#KitchenComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#KitchenComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/bpo#assembly> .
+<https://w3id.org/cfc#KitchenComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#KitchenComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A kitchen component, such as cabinetry, countertops, or built-in appliances."@en .
+<https://w3id.org/cfc#KitchenComponent> <http://www.w3.org/2000/01/rdf-schema#label> "KitchenComponent"@en .
+# 
+# https://w3id.org/cfc#MaintenanceEvent
+<https://w3id.org/cfc#MaintenanceEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#MaintenanceEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://w3id.org/cfc#MaintenanceEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Processes#Activity> .
+<https://w3id.org/cfc#MaintenanceEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event in which regular upkeep, repair, or servicing activities are performed on a building or component."@en .
+<https://w3id.org/cfc#MaintenanceEvent> <http://www.w3.org/2000/01/rdf-schema#label> "MaintenanceEvent"@en .
+# 
+# https://w3id.org/cfc#ManufacturerRole
+<https://w3id.org/cfc#ManufacturerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#ManufacturerRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Agents#StakeholderRole> .
+<https://w3id.org/cfc#ManufacturerRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Role of an agent (company or facility) manufacturing building components or materials."@en .
+<https://w3id.org/cfc#ManufacturerRole> <http://www.w3.org/2000/01/rdf-schema#label> "ManufacturerRole"@en .
+# 
+# https://w3id.org/cfc#Material
+<https://w3id.org/cfc#Material> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Material> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/BuildingMaterials#Material> .
+<https://w3id.org/digitalconstruction/BuildingMaterials#Material> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Material> <http://www.w3.org/2000/01/rdf-schema#comment> "A type of material (e.g., concrete, steel, glass) used in building components."@en .
+<https://w3id.org/cfc#Material> <http://www.w3.org/2000/01/rdf-schema#label> "Material"@en .
+# 
+# https://w3id.org/cfc#MaterialOffer
+<https://w3id.org/cfc#MaterialOffer> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#MaterialOffer> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld-ce.com/vocab/CEO#Offer> .
+<https://w3id.org/cfc#MaterialOffer> <http://www.w3.org/2000/01/rdf-schema#comment> "An offer made by an agent to supply a material resource in a circular economy context."@en .
+<https://w3id.org/cfc#MaterialOffer> <http://www.w3.org/2000/01/rdf-schema#label> "MaterialOffer"@en .
+# 
+# https://w3id.org/cfc#MaterialRequest
+<https://w3id.org/cfc#MaterialRequest> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#MaterialRequest> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld-ce.com/vocab/CEO#Request> .
+<https://w3id.org/cfc#MaterialRequest> <http://www.w3.org/2000/01/rdf-schema#comment> "A request made by an agent for a material resource, indicating demand."@en .
+<https://w3id.org/cfc#MaterialRequest> <http://www.w3.org/2000/01/rdf-schema#label> "MaterialRequest"@en .
+# 
+# https://w3id.org/cfc#MaterialResource
+<https://w3id.org/cfc#MaterialResource> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#MaterialResource> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld-ce.com/vocab/CEO#Resource> .
+<https://w3id.org/cfc#MaterialResource> <http://www.w3.org/2000/01/rdf-schema#comment> "A quantity of a material (possibly from a component) available for reuse (a recoverable resource in a circular economy)."@en .
+<https://w3id.org/cfc#MaterialResource> <http://www.w3.org/2000/01/rdf-schema#label> "MaterialResource"@en .
+# 
+# https://w3id.org/cfc#MaterialTransaction
+<https://w3id.org/cfc#MaterialTransaction> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#MaterialTransaction> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld-ce.com/vocab/CEO#Transaction> .
+<https://w3id.org/cfc#MaterialTransaction> <http://www.w3.org/2000/01/rdf-schema#comment> "Represents an executed transaction between an offer and a request for a material resource."@en .
+<https://w3id.org/cfc#MaterialTransaction> <http://www.w3.org/2000/01/rdf-schema#label> "MaterialTransaction"@en .
+# 
+# https://w3id.org/cfc#MechanicalComponent
+<https://w3id.org/cfc#MechanicalComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#MechanicalComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#MechanicalComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#MechanicalComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A mechanical system component, such as pumps, motors, and ductwork."@en .
+<https://w3id.org/cfc#MechanicalComponent> <http://www.w3.org/2000/01/rdf-schema#label> "MechanicalComponent"@en .
+# 
+# https://w3id.org/cfc#PaintMaterial
+<https://w3id.org/cfc#PaintMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#PaintMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#PaintMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Paint or coating material used for finishing surfaces."@en .
+<https://w3id.org/cfc#PaintMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "PaintMaterial"@en .
+# 
+# https://w3id.org/cfc#PlasterComponent
+<https://w3id.org/cfc#PlasterComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#PlasterComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#PlasterComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#PlasterComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A plaster or drywall component forming interior wall finishes."@en .
+<https://w3id.org/cfc#PlasterComponent> <http://www.w3.org/2000/01/rdf-schema#label> "PlasterComponent"@en .
+# 
+# https://w3id.org/cfc#PlumbingComponent
+<https://w3id.org/cfc#PlumbingComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#PlumbingComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#PlumbingComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#PlumbingComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A plumbing component, such as pipes, fixtures, and fittings."@en .
+<https://w3id.org/cfc#PlumbingComponent> <http://www.w3.org/2000/01/rdf-schema#label> "PlumbingComponent"@en .
+# 
+# https://w3id.org/cfc#ReclaimerRole
+<https://w3id.org/cfc#ReclaimerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#ReclaimerRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Agents#StakeholderRole> .
+<https://w3id.org/cfc#ReclaimerRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Role of an agent responsible for collecting, sorting, and reclaiming materials post-demolition."@en .
+<https://w3id.org/cfc#ReclaimerRole> <http://www.w3.org/2000/01/rdf-schema#label> "ReclaimerRole"@en .
+# 
+# https://w3id.org/cfc#RenovationEvent
+<https://w3id.org/cfc#RenovationEvent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#RenovationEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.w3.org/ns/prov#Activity> .
+<https://w3id.org/cfc#RenovationEvent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Processes#Activity> .
+<https://w3id.org/cfc#RenovationEvent> <http://www.w3.org/2000/01/rdf-schema#comment> "An event in which a building or component is upgraded, refurbished, or modified without complete demolition."@en .
+<https://w3id.org/cfc#RenovationEvent> <http://www.w3.org/2000/01/rdf-schema#label> "RenovationEvent"@en .
+# 
+# https://w3id.org/cfc#Roof
+<https://w3id.org/cfc#Roof> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Roof> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#Roof> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/bpo#assembly> .
+<https://w3id.org/cfc#Roof> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#Roof> <http://www.w3.org/2000/01/rdf-schema#comment> "A roof component providing top enclosure for a building."@en .
+<https://w3id.org/cfc#Roof> <http://www.w3.org/2000/01/rdf-schema#label> "Roof"@en .
+# 
+# https://w3id.org/cfc#SalvageContractorRole
+<https://w3id.org/cfc#SalvageContractorRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#SalvageContractorRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Agents#StakeholderRole> .
+<https://w3id.org/cfc#SalvageContractorRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Role of an agent responsible for salvaging materials (e.g., performing deconstruction and material recovery)."@en .
+<https://w3id.org/cfc#SalvageContractorRole> <http://www.w3.org/2000/01/rdf-schema#label> "SalvageContractorRole"@en .
+# 
+# https://w3id.org/cfc#Sector
+<https://w3id.org/cfc#Sector> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Sector> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#Sector> <http://www.w3.org/2000/01/rdf-schema#subClassOf> _:genid2 .
+_:genid2 <http://www.w3.org/2002/07/owl#allValuesFrom> <https://w3id.org/bot#Building> .
+_:genid2 <http://www.w3.org/2002/07/owl#onProperty> <https://w3id.org/cfc#hasBuilding> .
+_:genid2 <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Restriction> .
+<https://w3id.org/cfc#Sector> <http://www.w3.org/2000/01/rdf-schema#comment> "A city sector or district containing a group of buildings."@en .
+<https://w3id.org/cfc#Sector> <http://www.w3.org/2000/01/rdf-schema#label> "CitySector"@en .
+# 
+# https://w3id.org/cfc#StainlessSteelMaterial
+<https://w3id.org/cfc#StainlessSteelMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#StainlessSteelMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#StainlessSteelMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Stainless steel material used for countertops, handrails, and certain structural elements; prized for corrosion resistance and recyclability."@en .
+<https://w3id.org/cfc#StainlessSteelMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "StainlessSteelMaterial"@en .
+# 
+# https://w3id.org/cfc#Stair
+<https://w3id.org/cfc#Stair> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Stair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#Stair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/bpo#assembly> .
+<https://w3id.org/cfc#Stair> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#Stair> <http://www.w3.org/2000/01/rdf-schema#comment> "A stair component composed of treads, risers, and supporting structure."@en .
+<https://w3id.org/cfc#Stair> <http://www.w3.org/2000/01/rdf-schema#label> "Stair"@en .
+# 
+# https://w3id.org/cfc#StructuralSteel
+<https://w3id.org/cfc#StructuralSteel> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#StructuralSteel> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#StructuralSteel> <http://www.w3.org/2000/01/rdf-schema#comment> "Structural steel material with known load-bearing properties."@en .
+<https://w3id.org/cfc#StructuralSteel> <http://www.w3.org/2000/01/rdf-schema#label> "StructuralSteelMaterial"@en .
+# 
+# https://w3id.org/cfc#TimberMaterial
+<https://w3id.org/cfc#TimberMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#TimberMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#TimberMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Timber material used for structural framing, flooring, and finishes; includes solid lumber and engineered wood products."@en .
+<https://w3id.org/cfc#TimberMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "TimberMaterial"@en .
+# 
+# https://w3id.org/cfc#UrbanPlannerRole
+<https://w3id.org/cfc#UrbanPlannerRole> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#UrbanPlannerRole> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/digitalconstruction/Agents#StakeholderRole> .
+<https://w3id.org/cfc#UrbanPlannerRole> <http://www.w3.org/2000/01/rdf-schema#comment> "Role of an agent responsible for urban planning functions at the city or sector level."@en .
+<https://w3id.org/cfc#UrbanPlannerRole> <http://www.w3.org/2000/01/rdf-schema#label> "UrbanPlannerRole"@en .
+# 
+# https://w3id.org/cfc#VentilationComponent
+<https://w3id.org/cfc#VentilationComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#VentilationComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#VentilationComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#HVACComponent> .
+<https://w3id.org/cfc#VentilationComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A ventilation system component, such as ducts, fans, or vents."@en .
+<https://w3id.org/cfc#VentilationComponent> <http://www.w3.org/2000/01/rdf-schema#label> "VentilationComponent"@en .
+# 
+# https://w3id.org/cfc#Wall
+<https://w3id.org/cfc#Wall> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Wall> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#Wall> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/bpo#assembly> .
+<https://w3id.org/cfc#Wall> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#Wall> <http://www.w3.org/2000/01/rdf-schema#comment> "A vertical element forming the enclosure or partition of a building."@en .
+<https://w3id.org/cfc#Wall> <http://www.w3.org/2000/01/rdf-schema#label> "Wall"@en .
+# 
+# https://w3id.org/cfc#WaterproofingMaterial
+<https://w3id.org/cfc#WaterproofingMaterial> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#WaterproofingMaterial> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#Material> .
+<https://w3id.org/cfc#WaterproofingMaterial> <http://www.w3.org/2000/01/rdf-schema#comment> "Waterproofing material, such as membrane or sealant used for moisture protection."@en .
+<https://w3id.org/cfc#WaterproofingMaterial> <http://www.w3.org/2000/01/rdf-schema#label> "WaterproofingMaterial"@en .
+# 
+# https://w3id.org/cfc#Window
+<https://w3id.org/cfc#Window> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#Window> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#Window> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/bpo#assembly> .
+<https://w3id.org/cfc#Window> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#Window> <http://www.w3.org/2000/01/rdf-schema#comment> "A window component, typically an assembly of frame and glazing."@en .
+<https://w3id.org/cfc#Window> <http://www.w3.org/2000/01/rdf-schema#label> "Window"@en .
+# 
+# https://w3id.org/cfc#WindowCurtainWallComponent
+<https://w3id.org/cfc#WindowCurtainWallComponent> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#WindowCurtainWallComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://raw.githubusercontent.com/TheWorldAvatar/ontology/main/ontology/ontocitygml/ontocitygml.owl#CityObject> .
+<https://w3id.org/cfc#WindowCurtainWallComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/bpo#assembly> .
+<https://w3id.org/cfc#WindowCurtainWallComponent> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/cfc#BuildingComponent> .
+<https://w3id.org/cfc#WindowCurtainWallComponent> <http://www.w3.org/2000/01/rdf-schema#comment> "A curtain wall component incorporating windows and framing."@en .
+<https://w3id.org/cfc#WindowCurtainWallComponent> <http://www.w3.org/2000/01/rdf-schema#label> "WindowCurtainWallComponent"@en .
+# 
+# https://w3id.org/cfc#WorkOrder
+<https://w3id.org/cfc#WorkOrder> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<https://w3id.org/cfc#WorkOrder> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://ld-ce.com/vocab/CAMO#WorkOrder> .
+<https://w3id.org/cfc#WorkOrder> <http://www.w3.org/2000/01/rdf-schema#comment> "A scheduled task or job related to an Asset, such as inspection, maintenance, or deconstruction."@en .
+<https://w3id.org/cfc#WorkOrder> <http://www.w3.org/2000/01/rdf-schema#label> "WorkOrder"@en .
+# 
+# https://w3id.org/digitalconstruction/Agents#Agent
+# 
+# https://w3id.org/digitalconstruction/Agents#StakeholderRole
+# 
+# https://w3id.org/digitalconstruction/BuildingMaterials#Material
+# 
+# https://w3id.org/digitalconstruction/Processes#Activity
+# 
+# Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
